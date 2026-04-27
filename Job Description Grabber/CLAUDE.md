@@ -41,6 +41,15 @@ The entire script is a single IIFE in one `.js` file following the userscript pa
 3. If generic extraction fails, add a site-specific block in `extractJobData()` (see the Gusto block as a pattern)
 4. Bump `@version` in the header
 
+## Coda formula language
+
+Do not write Coda formulas from assumption. Coda has its own formula language that differs from Excel, Google Sheets, and RE2 in non-obvious ways. Specific confirmed mistakes:
+
+- **Concatenation is `+`, not `&`** (`&` is the Excel convention; Coda uses `+`)
+- **Regex dialect is unverified** — do not assume RE2, PCRE, or any specific flavor. Inline flags like `(?is)` may not be supported. Before writing any non-trivial Coda regex, flag the uncertainty and direct the user to `coda.io/formulas` to confirm supported syntax.
+
+When asked to write Coda formulas involving regex: write the logic, call out any operators or regex features that depend on dialect assumptions, and tell the user to verify those specific parts against Coda's docs before using.
+
 ## GM API usage
 
 | API | Purpose |

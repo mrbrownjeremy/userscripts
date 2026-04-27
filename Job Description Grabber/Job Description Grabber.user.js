@@ -499,8 +499,47 @@
       color: inherit !important;
       text-decoration: inherit !important;
     }
+    .jdg-hl-orange { background: var(--jdg-hl-orange, #ffcc80) !important; }
     .jdg-hl-yellow { background: var(--jdg-hl-yellow, #fff59d) !important; }
     .jdg-hl-green  { background: var(--jdg-hl-green,  #c8e6c9) !important; }
+
+    /* ── Highlight group drag-and-drop UI ── */
+    .jdg-hl-rows { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+    .jdg-hl-row  { display:flex; align-items:flex-start; gap:8px; }
+    .jdg-hl-row-head {
+      display:flex; align-items:center; gap:6px;
+      width:116px; flex-shrink:0; padding-top:5px;
+    }
+    .jdg-hl-row-head input[type=color] {
+      width:28px; height:22px; padding:1px 2px;
+      border:1px solid #ddd; border-radius:4px;
+      cursor:pointer; background:#fafafa; flex-shrink:0;
+    }
+    .jdg-hl-swatch-label {
+      padding:2px 8px; border-radius:3px; font-size:11px;
+      border:1px solid rgba(0,0,0,0.08); white-space:nowrap;
+      min-width:52px; text-align:center;
+    }
+    .jdg-hl-dropzone {
+      flex:1; min-height:32px;
+      display:flex; flex-wrap:wrap; align-content:flex-start; gap:4px;
+      padding:4px 6px;
+      border:1.5px dashed #d4d4d4; border-radius:8px;
+      transition:border-color 0.15s, background 0.15s;
+    }
+    .jdg-hl-dropzone.jdg-drag-over {
+      border-color:#94a3c4; background:#f0f4ff;
+    }
+    .jdg-hl-tag {
+      display:inline-flex; align-items:center;
+      padding:3px 10px; border-radius:20px;
+      font-size:11px; color:#3a5080;
+      cursor:grab; user-select:none;
+      background:#ddeeff; border:1px solid rgba(60,130,220,0.18);
+      white-space:nowrap; transition:opacity 0.1s;
+    }
+    .jdg-hl-tag:active  { cursor:grabbing; }
+    .jdg-hl-tag.jdg-dragging { opacity:0.35; }
   `);
 
   // ─── State ───────────────────────────────────────────────────────────────────
@@ -529,11 +568,35 @@
   }
   function saveDomainIndustries(arr) { GM_setValue('domainIndustries', JSON.stringify(arr)); }
   function getHighlightEnabled() { return GM_getValue('highlightEnabled', true); }
+  function getHighlightOrange()  { return GM_getValue('highlightOrange', '#ffcc80'); }
   function getHighlightYellow()  { return GM_getValue('highlightYellow', '#fff59d'); }
   function getHighlightGreen()   { return GM_getValue('highlightGreen',  '#c8e6c9'); }
   function applyHighlightColors() {
+    document.documentElement.style.setProperty('--jdg-hl-orange', getHighlightOrange());
     document.documentElement.style.setProperty('--jdg-hl-yellow', getHighlightYellow());
     document.documentElement.style.setProperty('--jdg-hl-green',  getHighlightGreen());
+  }
+
+  // Group → color assignments (user-configurable via drag-and-drop in Settings)
+  const HIGHLIGHT_GROUPS = ['Salary', 'Remote Policy', 'FT/PT/C/T', 'Hrs/Wk', 'Benefits', 'Degree', 'Comp Type', 'Shift'];
+  const DEFAULT_GROUP_COLORS = {
+    'Salary':        'orange',
+    'Remote Policy': 'yellow',
+    'FT/PT/C/T':     'yellow',
+    'Hrs/Wk':        'green',
+    'Benefits':      'green',
+    'Degree':        'green',
+    'Comp Type':     'green',
+    'Shift':         'green',
+  };
+  function getGroupColors() {
+    const stored = GM_getValue('highlightGroupColors', null);
+    if (!stored) return { ...DEFAULT_GROUP_COLORS };
+    try { return { ...DEFAULT_GROUP_COLORS, ...JSON.parse(stored) }; }
+    catch { return { ...DEFAULT_GROUP_COLORS }; }
+  }
+  function saveGroupColors(colors) {
+    GM_setValue('highlightGroupColors', JSON.stringify(colors));
   }
   function getPosition() { return GM_getValue('panelPosition', 'top-right'); }
   function getShortcut() { return GM_getValue('shortcut', ''); }
@@ -917,14 +980,18 @@
         // 1. "$X/unit to $Y/unit" (e.g. "$162,000/year to $227,000/year")
         // 2. "between $X and $Y"
         // 3. "$X - $Y" or "$X – $Y"
+        // 3b. Bare "78,000 - 90,000" (no currency, two 5+ digit numbers)
         // 4. Single "$X/unit"
         // Optionally followed by "+ bonus", "+ equity", etc.
         const trailer = /(?:\s*\+\s*(?:bonus|equity|benefits|commission|incentive))*/.source;
         const cur = '[$£€¥￥₩₹]';
+        const bareNum = '(?:\\d{5,}|\\d{2,3}(?:,\\d{3})+)(?:\\.\\d+)?';
         const salMatch =
           bodyText.match(new RegExp(`${cur}[\\d,]+(?:\\.\\d+)?(?:\\/(?:yr|year|hr|hour|wk|week|mo|month))?\\s+to\\s+${cur}[\\d,]+(?:\\.\\d+)?(?:\\/(?:yr|year|hr|hour|wk|week|mo|month))?${trailer}`, 'i')) ||
           bodyText.match(new RegExp(`between\\s+${cur}[\\d,]+(?:\\.\\d+)?\\s+and\\s+${cur}[\\d,]+(?:\\.\\d+)?`, 'i')) ||
           bodyText.match(new RegExp(`${cur}[\\d,]+(?:\\.\\d+)?(?:\\/(?:yr|year|hr|hour|wk|week|mo|month))?\\s*[-–—]\\s*${cur}?[\\d,]+(?:\\.\\d+)?(?:\\/(?:yr|year|hr|hour|wk|week|mo|month))?${trailer}`, 'i')) ||
+          bodyText.match(new RegExp(`(?<!\\d)${bareNum}\\s+to\\s+${bareNum}(?!\\d)`, 'i')) ||
+          bodyText.match(new RegExp(`(?<!\\d)${bareNum}\\s*[-–—]\\s*${bareNum}(?!\\d)`)) ||
           bodyText.match(new RegExp(`${cur}[\\d,]+(?:\\.\\d+)?(?:\\/(?:yr|year|hr|hour|wk|week|mo|month))?`, 'i'));
         if (salMatch) data.salaryRange = salMatch[0].trim();
       }
@@ -966,6 +1033,9 @@
     // Shift / Hours: fall back to regex extraction if labeled field didn't find anything
     if (!data.shiftHours) {
       data.shiftHours = extractShiftHours(data.description);
+    }
+    if (!data.shiftHours) {
+      data.shiftHours = '9–5 (presumed)';
     }
 
     // Industry inference — include department label in corpus for better signal
@@ -1093,7 +1163,9 @@
     //   9am - 5pm
     //   7:30 AM to 3:30 PM CST
     //   8:00–17:00
-    const timeRangeRe = /\b(\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)?)\s*(?:–|-|to)\s*(\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)?(?:\s*[A-Z]{2,4})?)\b/gi;
+    // First side MUST have either colon+minutes (8:00) or an explicit am/pm marker (9am).
+    // This prevents matching year/experience ranges like "3–5+ years of social".
+    const timeRangeRe = /\b(\d{1,2}(?::\d{2}\s*(?:[ap]\.?m\.?)?|\s*[ap]\.?m\.?))\s*(?:–|-|to)\s*(\d{1,2}(?::\d{2})?\s*(?:[ap]\.?m\.?)?(?:\s*[A-Z]{2,4})?)\b/gi;
 
     // Shift name patterns: "Red Shift", "Day Shift", "Night Shift", "Morning Shift"
     const shiftNameRe = /\b((?:red|blue|green|day|night|morning|evening|overnight|first|second|third|swing|mid)\s+shift)\b/gi;
@@ -1518,41 +1590,45 @@
   }
 
   // ─── Page Highlighting ───────────────────────────────────────────────────────
-  // Each entry: { src: regex source string, flags: string, cls: CSS class }
+  // Each entry: { src: regex source string, flags: string, group: display group name }
   // Using src+flags (not /regex/ literals) avoids stale lastIndex across calls.
+  // `group` maps to a user-configurable color via getGroupColors() at apply-time.
   const HIGHLIGHT_RULES = [
-    // Yellow — Salary Range  ($£€¥￥₩₹)
-    { src: String.raw`[$£€¥￥₩₹][\d,]+(?:\.\d+)?(?:\/(?:yr|year|hr|hour|wk|week|mo|month))?\s*(?:–|-|—|to)\s*[$£€¥￥₩₹]?[\d,]+(?:\.\d+)?(?:\/(?:yr|year|hr|hour|wk|week|mo|month))?`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    { src: String.raw`\bbetween\s+[$£€¥￥₩₹][\d,]+(?:\.\d+)?\s+and\s+[$£€¥￥₩₹][\d,]+(?:\.\d+)?`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    { src: String.raw`[$£€¥￥₩₹][\d,]+(?:\.\d+)?\/(?:yr|year|hr|hour|wk|week|mo|month)\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    // Yellow — Remote Policy
-    { src: String.raw`\b(?:fully\s+remote|100%\s*remote|remote[\s-]only|work\s+(?:fully\s+)?remotely)\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    { src: String.raw`\bhybrid\s*(?:work|schedule|model|role|position|arrangement)?\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    { src: String.raw`\b(?:on[\s-]?site|in[\s-]?office)\s*(?:only|required)?\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    // Yellow — FT/PT/C/T
-    { src: String.raw`\bfull[- ]?time\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    { src: String.raw`\bpart[- ]?time\b`, flags: 'gi', cls: 'jdg-hl-yellow' },
-    // Green — Hrs/Wk
-    { src: String.raw`\b\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?\s*(?:hours?|hrs?)\s*(?:per\s*week|\/\s*(?:week|wk))\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    // Green — Benefits / Degree
-    { src: String.raw`\bbenefits?\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\bdegrees?\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    // Green — Comp Type
-    { src: String.raw`\b(?:on[\s-]?target\s+earnings?|ote)\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\b(?:commission[\s-]?based|uncapped\s+commission)\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\bper\s+diem\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\bhourly\s+(?:rate|pay|wage|compensation)\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\bbase\s+(?:salary\s+)?(?:\+|plus|and)\s+(?:bonus|equity)\b`, flags: 'gi', cls: 'jdg-hl-green' },
-    // Green — Shift / Hours
-    { src: String.raw`\b\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)\s*(?:–|-|to)\s*\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)`, flags: 'gi', cls: 'jdg-hl-green' },
-    { src: String.raw`\b(?:day|night|morning|evening|overnight|first|second|third|swing)\s+shift\b`, flags: 'gi', cls: 'jdg-hl-green' },
+    // Salary
+    { src: String.raw`[$£€¥￥₩₹][\d,]+(?:\.\d+)?(?:\/(?:yr|year|hr|hour|wk|week|mo|month))?\s*(?:–|-|—|to)\s*[$£€¥￥₩₹]?[\d,]+(?:\.\d+)?(?:\/(?:yr|year|hr|hour|wk|week|mo|month))?`, flags: 'gi', group: 'Salary' },
+    { src: String.raw`\bbetween\s+[$£€¥￥₩₹][\d,]+(?:\.\d+)?\s+and\s+[$£€¥￥₩₹][\d,]+(?:\.\d+)?`, flags: 'gi', group: 'Salary' },
+    { src: String.raw`[$£€¥￥₩₹][\d,]+(?:\.\d+)?(?:\/(?:yr|year|hr|hour|wk|week|mo|month)|\s+(?:hourly|annually|yearly|per\s+(?:hour|year|week|month)))\b`, flags: 'gi', group: 'Salary' },
+    { src: String.raw`[$£€¥￥₩₹][\d,]+(?:\.\d+)?\b`, flags: 'gi', group: 'Salary' },
+    { src: String.raw`(?<!\d)(?:\d{5,}|\d{2,3}(?:,\d{3})+)(?:\.\d+)?\s*(?:–|-|—|\bto\b)\s*(?:\d{5,}|\d{2,3}(?:,\d{3})+)(?:\.\d+)?(?!\d)`, flags: 'gi', group: 'Salary' },
+    // Remote Policy
+    { src: String.raw`\b(?:fully\s+remote|100%\s*remote|remote[\s-]only|work\s+(?:fully\s+)?remotely|remotely)\b`, flags: 'gi', group: 'Remote Policy' },
+    { src: String.raw`\bhybrid\s*(?:work|schedule|model|role|position|arrangement)?\b`, flags: 'gi', group: 'Remote Policy' },
+    { src: String.raw`\b(?:on[\s-]?site|in[\s-]?office)\s*(?:only|required)?\b`, flags: 'gi', group: 'Remote Policy' },
+    // FT/PT/C/T
+    { src: String.raw`\bfull[- ]?time\b`, flags: 'gi', group: 'FT/PT/C/T' },
+    { src: String.raw`\bpart[- ]?time\b`, flags: 'gi', group: 'FT/PT/C/T' },
+    // Hrs/Wk
+    { src: String.raw`\b\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?\s*(?:hours?|hrs?)\s*(?:per\s*week|\/\s*(?:week|wk))\b`, flags: 'gi', group: 'Hrs/Wk' },
+    // Benefits
+    { src: String.raw`\bbenefits?\b`, flags: 'gi', group: 'Benefits' },
+    // Degree
+    { src: String.raw`\bdegrees?\b`, flags: 'gi', group: 'Degree' },
+    // Comp Type
+    { src: String.raw`\b(?:on[\s-]?target\s+earnings?|ote)\b`, flags: 'gi', group: 'Comp Type' },
+    { src: String.raw`\b(?:commission[\s-]?based|uncapped\s+commission)\b`, flags: 'gi', group: 'Comp Type' },
+    { src: String.raw`\bper\s+diem\b`, flags: 'gi', group: 'Comp Type' },
+    { src: String.raw`\bhourly\s+(?:rate|pay|wage|compensation)\b`, flags: 'gi', group: 'Comp Type' },
+    { src: String.raw`\bbase\s+(?:salary\s+)?(?:\+|plus|and)\s+(?:bonus|equity)\b`, flags: 'gi', group: 'Comp Type' },
+    // Shift
+    { src: String.raw`\b\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)\s*(?:–|-|to)\s*\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)`, flags: 'gi', group: 'Shift' },
+    { src: String.raw`\b(?:day|night|morning|evening|overnight|first|second|third|swing)\s+shift\b`, flags: 'gi', group: 'Shift' },
   ];
 
-  function _highlightInTextNode(textNode) {
+  function _highlightInTextNode(textNode, rules) {
     const text = textNode.textContent;
     const matches = [];
 
-    for (const { src, flags, cls } of HIGHLIGHT_RULES) {
+    for (const { src, flags, cls } of rules) {
       const re = new RegExp(src, flags);
       let m;
       while ((m = re.exec(text)) !== null) {
@@ -1590,6 +1666,9 @@
     removeHighlights();
     if (!getHighlightEnabled()) return;
 
+    const _gc = getGroupColors();
+    const _rules = HIGHLIGHT_RULES.map(r => ({ ...r, cls: 'jdg-hl-' + (_gc[r.group] || 'green') }));
+
     const JDG_IDS = new Set(['jdg-panel','jdg-overlay','jdg-site-overlay','jdg-settings-overlay']);
     const SKIP_TAGS = new Set(['script','style','noscript','input','textarea','select','mark']);
 
@@ -1612,7 +1691,7 @@
     const nodes = [];
     let n;
     while ((n = walker.nextNode())) nodes.push(n);
-    for (const node of nodes) _highlightInTextNode(node);
+    for (const node of nodes) _highlightInTextNode(node, _rules);
   }
 
   function removeHighlights() {
@@ -1687,11 +1766,11 @@
       if (REQ_RE.test(line))  { section = 'req';  pendingBullet = false; continue; }
       if (EDU_RE.test(line))  { section = 'edu';  pendingBullet = false; continue; }
       if (BEN_RE.test(line))  { section = 'ben';  pendingBullet = false; continue; }
-      // Colon-terminated sub-labels within a section (e.g., "Operational:", "System Knowledge:")
-      // skip without ending the section — they're sub-headings, not section boundaries
-      if (section && isHeading(line) && /:\s*$/.test(line)) continue;
-      // Any other unrecognized heading-like line ends the current section
-      if (isHeading(line))    { section = null;   pendingBullet = false; continue; }
+      // Unrecognized heading-like lines: skip without ending the current section.
+      // When inside a section (e.g. resp), these are subsection labels like "Content Strategy & Planning".
+      // Only recognized regexes (RESP_RE / REQ_RE / EDU_RE / BEN_RE) above terminate a section.
+      // When outside any section, unrecognized headings are also skipped (no section to assign to).
+      if (isHeading(line))    { pendingBullet = false; continue; }
       // Inline heading: "Requirements 4+ years..." — keyword + content on same line, no bullet
       const inlineHd = checkInlineHeading(line);
       if (inlineHd) {
@@ -2644,15 +2723,19 @@
             <input type="checkbox" id="jdg-highlight-toggle" ${getHighlightEnabled() ? 'checked' : ''}>
             <span style="font-size:13px;">Highlight matched fields on page</span>
           </label>
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-            <input type="color" id="jdg-hl-color-yellow" value="${getHighlightYellow()}" style="width:32px;height:24px;padding:1px 2px;border:1px solid #ddd;border-radius:4px;cursor:pointer;background:#fafafa;">
-            <span id="jdg-hl-swatch-yellow" style="background:${getHighlightYellow()};padding:2px 8px;border-radius:3px;font-size:11px;border:1px solid rgba(0,0,0,0.08);">Yellow</span>
-            <span style="font-size:11px;color:#888;">Salary · Remote Policy · FT/PT/C/T</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <input type="color" id="jdg-hl-color-green" value="${getHighlightGreen()}" style="width:32px;height:24px;padding:1px 2px;border:1px solid #ddd;border-radius:4px;cursor:pointer;background:#fafafa;">
-            <span id="jdg-hl-swatch-green" style="background:${getHighlightGreen()};padding:2px 8px;border-radius:3px;font-size:11px;border:1px solid rgba(0,0,0,0.08);">Green</span>
-            <span style="font-size:11px;color:#888;">Hrs/Wk · Comp Type · Shift · Benefits · Degree</span>
+          <p style="font-size:11px;color:#888;margin:0 0 8px;">Drag tags between rows to change which color highlights each field type.</p>
+          <div class="jdg-hl-rows" id="jdg-hl-rows">
+            ${['orange','yellow','green'].map(color => {
+              const colorVal = color === 'orange' ? getHighlightOrange() : color === 'yellow' ? getHighlightYellow() : getHighlightGreen();
+              const label = color.charAt(0).toUpperCase() + color.slice(1);
+              return `<div class="jdg-hl-row">
+                <div class="jdg-hl-row-head">
+                  <input type="color" id="jdg-hl-color-${color}" value="${colorVal}">
+                  <span id="jdg-hl-swatch-${color}" class="jdg-hl-swatch-label" style="background:${colorVal};">${label}</span>
+                </div>
+                <div class="jdg-hl-dropzone" id="jdg-hl-zone-${color}" data-color="${color}"></div>
+              </div>`;
+            }).join('')}
           </div>
         </div>
 
@@ -2688,17 +2771,71 @@
       if (e.target.checked) applyHighlights(); else removeHighlights();
     });
 
-    // Highlight color pickers
-    modal.querySelector('#jdg-hl-color-yellow').addEventListener('input', (e) => {
-      GM_setValue('highlightYellow', e.target.value);
-      modal.querySelector('#jdg-hl-swatch-yellow').style.background = e.target.value;
-      applyHighlightColors();
-    });
-    modal.querySelector('#jdg-hl-color-green').addEventListener('input', (e) => {
-      GM_setValue('highlightGreen', e.target.value);
-      modal.querySelector('#jdg-hl-swatch-green').style.background = e.target.value;
-      applyHighlightColors();
-    });
+    // ── Highlight color pickers ──
+    for (const [id, key, swatchId] of [
+      ['jdg-hl-color-orange', 'highlightOrange', 'jdg-hl-swatch-orange'],
+      ['jdg-hl-color-yellow', 'highlightYellow', 'jdg-hl-swatch-yellow'],
+      ['jdg-hl-color-green',  'highlightGreen',  'jdg-hl-swatch-green'],
+    ]) {
+      modal.querySelector(`#${id}`).addEventListener('input', (e) => {
+        GM_setValue(key, e.target.value);
+        modal.querySelector(`#${swatchId}`).style.background = e.target.value;
+        applyHighlightColors();
+      });
+    }
+
+    // ── Highlight group drag-and-drop ──
+    (function initHlDragDrop() {
+      const groupColors = getGroupColors();
+
+      // Populate drop zones from saved state
+      function renderTags() {
+        for (const color of ['orange', 'yellow', 'green']) {
+          modal.querySelector(`#jdg-hl-zone-${color}`).innerHTML = '';
+        }
+        for (const group of HIGHLIGHT_GROUPS) {
+          const color = groupColors[group] || 'green';
+          const zone = modal.querySelector(`#jdg-hl-zone-${color}`);
+          if (!zone) continue;
+          const tag = document.createElement('div');
+          tag.className = 'jdg-hl-tag';
+          tag.textContent = group;
+          tag.draggable = true;
+          tag.dataset.group = group;
+
+          tag.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', group);
+            e.dataTransfer.effectAllowed = 'move';
+            setTimeout(() => tag.classList.add('jdg-dragging'), 0);
+          });
+          tag.addEventListener('dragend', () => tag.classList.remove('jdg-dragging'));
+          zone.appendChild(tag);
+        }
+      }
+
+      // Drop zone events
+      for (const color of ['orange', 'yellow', 'green']) {
+        const zone = modal.querySelector(`#jdg-hl-zone-${color}`);
+        zone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          zone.classList.add('jdg-drag-over');
+        });
+        zone.addEventListener('dragleave', () => zone.classList.remove('jdg-drag-over'));
+        zone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          zone.classList.remove('jdg-drag-over');
+          const group = e.dataTransfer.getData('text/plain');
+          if (!group || !HIGHLIGHT_GROUPS.includes(group)) return;
+          groupColors[group] = color;
+          saveGroupColors(groupColors);
+          renderTags();
+          if (getHighlightEnabled()) applyHighlights();
+        });
+      }
+
+      renderTags();
+    })();
     modal.querySelector('#jdg-token-save').addEventListener('click', () => {
       const tok = modal.querySelector('#jdg-token-input').value.trim();
       GM_setValue('codaToken', tok);
@@ -2805,7 +2942,9 @@
     document.addEventListener('DOMContentLoaded', init);
   }
 
-  // Re-check panel exists after SPA navigation (debounced to avoid firing on every DOM mutation)
+  // Re-check panel exists after SPA navigation.
+  // Timer is set only once when the panel first goes missing — subsequent DOM mutations
+  // (e.g. React reconciliation bursts) do not reset it, so the panel always recovers.
   let _navTimer = null;
   const navObserver = new MutationObserver(() => {
     if (document.getElementById('jdg-panel')) return;
