@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.12.19
+// @version      3.12.20
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -711,7 +711,8 @@
 
     const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
     const badEmployerValue = (s) => /^(company|employer|organization|business|corp|inc)$/i.test(clean(s));
-    const isGusto = location.hostname.includes('gusto.com');
+    const isGusto    = location.hostname.includes('gusto.com');
+    const isLinkedIn = location.hostname.includes('linkedin.com');
 
     // Try ld+json first — process only the FIRST JobPosting to avoid picking up
     // salary/data from "similar jobs" schemas injected by aggregator sites.
@@ -829,6 +830,79 @@
         const etEl = document.querySelector('[data-qa="headerEmploymentType"]');
         if (etEl) data.ftPtCT = mapEmploymentType(clean(etEl.textContent)) || data.ftPtCT;
       }
+    }
+
+    // ── LinkedIn-specific extraction ──────────────────────────────────────────
+    // Overrides ld+json and generic DOM selectors for LinkedIn because:
+    //   1. ld+json may reflect the *first* job loaded on the search page, not
+    //      the currently-selected one — only DOM selectors targeting the detail
+    //      panel are guaranteed current after sidebar navigation.
+    //   2. Generic [class*="location"] matches LinkedIn's search-sidebar input
+    //      placeholder ("City, state, or zip code") instead of the job location.
+    if (isLinkedIn) {
+      // ── Job ID → canonical URL (always reflects the currently visible job) ──
+      const activeCard = document.querySelector(
+        '.jobs-search-results-list__list-item--active [data-job-id]'
+      );
+      const urlParams = new URLSearchParams(window.location.search);
+      let liJobId = (activeCard && activeCard.getAttribute('data-job-id')) ||
+                    urlParams.get('currentJobId');
+      if (!liJobId) {
+        const viewLink = document.querySelector(
+          '.job-details-jobs-unified-top-card a[href*="/jobs/view/"]'
+        );
+        if (viewLink) { const m = viewLink.href.match(/\/jobs\/view\/(\d+)/); liJobId = m && m[1]; }
+      }
+      if (!liJobId) {
+        const anyCard = document.querySelector('[data-job-id]');
+        if (anyCard) liJobId = anyCard.getAttribute('data-job-id');
+      }
+      if (liJobId) {
+        data.url       = `https://www.linkedin.com/jobs/view/${liJobId}`;
+        data.jobRefNum = data.jobRefNum || liJobId;
+      }
+
+      // ── Title & employer — detail-panel selectors, always reflect current job ──
+      const liTitle = document.querySelector(
+        '.job-details-jobs-unified-top-card__job-title h1 a,' +
+        '.job-details-jobs-unified-top-card__job-title h1'
+      );
+      if (liTitle) data.position = clean(liTitle.textContent);
+
+      const liCompany = document.querySelector(
+        '.job-details-jobs-unified-top-card__company-name a,' +
+        '.job-details-jobs-unified-top-card__company-name'
+      );
+      if (liCompany) data.employer = clean(liCompany.textContent);
+
+      // ── Location — tertiary metadata row: "City, ST · Mode · X applicants…" ──
+      const liMeta = document.querySelector(
+        '.job-details-jobs-unified-top-card__tertiary-description-container'
+      );
+      if (liMeta) {
+        const metaParts = liMeta.textContent.trim().replace(/\s+/g, ' ')
+          .split('·').map(s => s.trim()).filter(Boolean);
+        if (metaParts[0]) {
+          // Strip parenthetical work-mode suffix e.g. "Pittsburgh, PA (Hybrid)"
+          data.location = metaParts[0]
+            .replace(/\s*\((?:Remote|Hybrid|On-?site)\)/i, '').trim();
+        }
+      }
+
+      // ── Salary — preference-buttons row, excluding work-mode labels ──
+      const liSalaryBtns = document.querySelectorAll('.job-details-fit-level-preferences button');
+      const liSalary = [...liSalaryBtns]
+        .map(el => el.textContent.trim())
+        .filter(t => !/remote|hybrid|on-?site|onsite/i.test(t))
+        .join(' – ');
+      if (liSalary) data.salaryRange = liSalary;
+
+      // ── Description — always use the live HTML container ──
+      const liDesc = document.querySelector(
+        '.jobs-description__content .jobs-box__html-content,' +
+        '.jobs-box__html-content'
+      );
+      if (liDesc) data.description = stripHtml(liDesc.innerHTML);
     }
 
     // DOM fallback / augmentation
@@ -2471,8 +2545,12 @@
   }
 
   // ─── Direct-send (no modal) — used on sites where the modal is broken ────────
+  // Always re-extracts fresh: the detail panel updates in-place when the user
+  // selects a different job from the sidebar, so any cached data would be stale.
   function doSendDirectToCoda() {
-    const data = _lastExtractedData || extractJobData();
+    _lastExtractedData = null;
+    _lastModalState    = null;
+    const data = extractJobData();
     _lastExtractedData = data;
     showToast('Sending to Coda…');
     sendToCoda(data, null, null, null);
