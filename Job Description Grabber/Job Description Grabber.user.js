@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.12.16
+// @version      3.12.17
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -540,6 +540,36 @@
     }
     .jdg-hl-tag:active  { cursor:grabbing; }
     .jdg-hl-tag.jdg-dragging { opacity:0.35; }
+
+    /* ── CSS isolation: some sites (e.g. LinkedIn) override flex/grid/font globally.
+       Repeat critical layout declarations with !important so they always win. ── */
+    #jdg-modal {
+      display: flex !important; flex-direction: column !important;
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;
+      font-size: 13px !important; color: #1a1a1a !important;
+    }
+    #jdg-modal *, #jdg-settings * { box-sizing: border-box !important; }
+    .jdg-grid          { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+    .jdg-field         { display: flex !important; flex-direction: column !important; }
+    .jdg-field label   { display: block !important; }
+    .jdg-interest-wrap { display: flex !important; }
+    .jdg-multisel      { display: flex !important; flex-wrap: wrap !important; }
+    .jdg-chip          { display: flex !important; }
+    .jdg-modal-footer  { display: flex !important; }
+    .jdg-pos-grid      { display: grid !important; }
+    .jdg-shortcut-wrap { display: flex !important; }
+    .jdg-industry-item { display: flex !important; }
+    .jdg-add-industry  { display: flex !important; }
+    .jdg-token-wrap    { display: flex !important; }
+    .jdg-collapsible-header { display: flex !important; }
+    .jdg-collapsible-body.collapsed { display: none !important; }
+    .jdg-site-header-row { display: flex !important; }
+    .jdg-group         { display: flex !important; }
+    .jdg-hl-rows       { display: flex !important; flex-direction: column !important; }
+    .jdg-hl-row        { display: flex !important; }
+    .jdg-hl-row-head   { display: flex !important; }
+    .jdg-hl-dropzone   { display: flex !important; flex-wrap: wrap !important; }
+    .jdg-hl-tag        { display: inline-flex !important; }
   `);
 
   // ─── State ───────────────────────────────────────────────────────────────────
@@ -967,7 +997,10 @@
     // (e.g. SimplyHired's "similar jobs" div is a sibling of the job <aside>).
     if (!data.salaryRange || !data.jobRefNum) {
       const isSH = location.hostname.includes('simplyhired.com');
+      const isLISearch = location.hostname.includes('linkedin.com') &&
+                         location.pathname.startsWith('/jobs/search');
       const contentRoot =
+        (isLISearch ? document.querySelector('.jobs-search__job-details--wrapper') : null) ||
         document.querySelector('main, [role="main"], article') ||
         (isSH ? document.querySelector('aside[aria-label]') : null) ||
         document.body;
@@ -1992,8 +2025,8 @@
   }
 
   function doShowCodaModal() {
-    // If modal already open, just focus it
-    if (document.getElementById('jdg-overlay')) return;
+    const existing = document.getElementById('jdg-overlay');
+    if (existing) { existing.remove(); return; }
 
     // Prefer saved modal edits, then cached extraction, then fresh extraction
     const usedSavedState = !!_lastModalState;
@@ -2466,7 +2499,8 @@
 
   // ─── Site Matching Modal ─────────────────────────────────────────────────────
   function doShowSiteModal() {
-    if (document.getElementById('jdg-site-overlay')) return;
+    const existing = document.getElementById('jdg-site-overlay');
+    if (existing) { existing.remove(); return; }
 
     const overlay = document.createElement('div');
     overlay.id = 'jdg-site-overlay';
@@ -2671,7 +2705,8 @@
 
   // ─── Settings Modal ───────────────────────────────────────────────────────────
   function doShowSettings() {
-    if (document.getElementById('jdg-settings-overlay')) return;
+    const existing = document.getElementById('jdg-settings-overlay');
+    if (existing) { existing.remove(); return; }
 
     const overlay = document.createElement('div');
     overlay.id = 'jdg-settings-overlay';
