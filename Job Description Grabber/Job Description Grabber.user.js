@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.12.17
+// @version      3.12.18
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -540,6 +540,22 @@
     }
     .jdg-hl-tag:active  { cursor:grabbing; }
     .jdg-hl-tag.jdg-dragging { opacity:0.35; }
+
+    /* ── Toast notification ── */
+    #jdg-toast {
+      position: fixed; bottom: 24px; right: 24px;
+      z-index: 2147483647;
+      background: #1a1a2e; color: #fff;
+      padding: 10px 16px; border-radius: 8px;
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      font-size: 13px; font-weight: 500;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      opacity: 0; transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    #jdg-toast.jdg-toast-show { opacity: 1; }
+    #jdg-toast.jdg-toast-success { background: #1a3a2e; border-left: 3px solid #27ae60; }
+    #jdg-toast.jdg-toast-error   { background: #3a1a1a; border-left: 3px solid #c0392b; }
 
     /* ── CSS isolation: some sites (e.g. LinkedIn) override flex/grid/font globally.
        Repeat critical layout declarations with !important so they always win. ── */
@@ -1876,10 +1892,13 @@
     const pos = getPosition();
     panel.className = `pos-${pos}`;
 
+    const isLinkedIn = location.hostname.includes('linkedin.com');
     const buttons = [
       { emoji: '📋', label: 'Copy to Clipboard', action: doCopy },
       { emoji: '🗄️', label: 'Save to TXT',       action: doSaveTxt },
-      { emoji: '🧩', label: 'Send to Coda',       action: doShowCodaModal },
+      // On LinkedIn the modal renders broken due to CSS-in-JS interference;
+      // bypass it and send directly, using a toast for feedback instead.
+      { emoji: '🧩', label: 'Send to Coda',       action: isLinkedIn ? doSendDirectToCoda : doShowCodaModal },
       { emoji: '🌐', label: 'Site Matching',      action: doShowSiteModal },
       { emoji: '⚙️', label: 'Settings',           action: doShowSettings },
     ];
@@ -2431,10 +2450,32 @@
     };
   }
 
+  // ─── Toast ───────────────────────────────────────────────────────────────────
+  let _toastTimer = null;
+  function showToast(msg, type = '') {
+    let toast = document.getElementById('jdg-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'jdg-toast';
+      document.documentElement.appendChild(toast);
+    }
+    clearTimeout(_toastTimer);
+    toast.textContent = msg;
+    toast.className = `jdg-toast-show${type ? ' jdg-toast-' + type : ''}`;
+    _toastTimer = setTimeout(() => { toast.className = ''; }, 3000);
+  }
+
+  // ─── Direct-send (no modal) — used on sites where the modal is broken ────────
+  function doSendDirectToCoda() {
+    const data = _lastExtractedData || extractJobData();
+    _lastExtractedData = data;
+    showToast('Sending to Coda…');
+    sendToCoda(data, null, null, null);
+  }
+
   function sendToCoda(data, statusEl, sendBtn, overlay) {
-    statusEl.className = 'jdg-status-msg';
-    statusEl.textContent = 'Sending…';
-    sendBtn.disabled = true;
+    if (statusEl) { statusEl.className = 'jdg-status-msg'; statusEl.textContent = 'Sending…'; }
+    if (sendBtn) sendBtn.disabled = true;
 
     const cells = [
       { column: COL.position,      value: data.position },
@@ -2477,22 +2518,24 @@
       data: body,
       onload: (res) => {
         if (res.status === 202 || res.status === 200) {
-          statusEl.className = 'jdg-status-msg success';
-          statusEl.textContent = '✓ Added to Coda!';
+          if (statusEl) { statusEl.className = 'jdg-status-msg success'; statusEl.textContent = '✓ Added to Coda!'; }
+          else showToast('✓ Added to Coda!', 'success');
           flashPill(2, '✅');
           markUrlGrabbed();
           _lastModalState = null;
-          setTimeout(() => overlay.remove(), 1200);
+          if (overlay) setTimeout(() => overlay.remove(), 1200);
         } else {
-          statusEl.className = 'jdg-status-msg error';
-          statusEl.textContent = `Error ${res.status}: ${res.responseText.slice(0, 80)}`;
-          sendBtn.disabled = false;
+          const msg = `Error ${res.status}: ${res.responseText.slice(0, 80)}`;
+          if (statusEl) { statusEl.className = 'jdg-status-msg error'; statusEl.textContent = msg; }
+          else showToast(msg, 'error');
+          if (sendBtn) sendBtn.disabled = false;
         }
       },
       onerror: () => {
-        statusEl.className = 'jdg-status-msg error';
-        statusEl.textContent = 'Network error. Check token and connection.';
-        sendBtn.disabled = false;
+        const msg = 'Network error. Check token and connection.';
+        if (statusEl) { statusEl.className = 'jdg-status-msg error'; statusEl.textContent = msg; }
+        else showToast(msg, 'error');
+        if (sendBtn) sendBtn.disabled = false;
       },
     });
   }
