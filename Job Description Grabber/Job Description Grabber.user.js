@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.12.20
+// @version      3.12.21
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -125,6 +125,7 @@
     'comeet.com':           'Company Website',
     'oraclecloud.com':      'Company Website',
     'gusto.com':            'Company Website',
+    'squarespace.com':      'Company Website',
     'glassdoor.com':        'Glassdoor',
     'ziprecruiter.com':     'ZipRecruiter',
     'builtin.com':          'BuiltIn.com',
@@ -710,7 +711,7 @@
     };
 
     const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
-    const badEmployerValue = (s) => /^(company|employer|organization|business|corp|inc)$/i.test(clean(s));
+    const badEmployerValue = (s) => /^(company|employer|organization|business|corp|inc|careers?|jobs?)$/i.test(clean(s));
     const isGusto    = location.hostname.includes('gusto.com');
     const isLinkedIn = location.hostname.includes('linkedin.com');
 
@@ -919,6 +920,7 @@
     }
     if (!data.location) {
       data.location = getText([
+        '.job__location > div',           // Squarespace ATS (skips SVG icon sibling)
         '[class*="location"]', '[data-testid*="location"]', '.job-location', '[class*="jobLocation"]',
         '[data-qa="positionDetailLocation"]',
       ]);
@@ -984,7 +986,7 @@
       // 4. Page title: "Job Title - Company Name" or "Company Name | Job Title"
       const title = document.title;
       const m = title.match(/[-–|]\s*([^-–|]+?)\s*(?:[-–|]|$)/);
-      if (m) data.employer = m[1].trim();
+      if (m && !badEmployerValue(m[1])) data.employer = m[1].trim();
     }
     if (!data.employer) {
       // 5. "Back to jobs/careers" link href domain
@@ -2107,19 +2109,22 @@
   let _lastExtractedData = null;
   let _lastModalState    = null; // preserves user edits across accidental dismissals
 
-  // For SPA pages, attempt a delayed re-extraction and refresh modal if data improved
+  // For SPA pages, attempt delayed re-extractions and refresh modal if data improved.
+  // Tries at 1200ms then again at 3000ms to match slow React renders (mirrors highlight cadence).
   function tryDelayedExtraction(onImproved) {
-    setTimeout(() => {
+    const score = (d) => [d.ftPtCT, d.salaryRange, d.compType, d.shiftHours, d.jobRefNum, d.location]
+      .filter(v => v && v.trim()).length;
+    const attempt = () => {
       const fresh = extractJobData();
       const current = _lastExtractedData;
-      // Check if the fresh extraction has meaningfully more data
-      const score = (d) => [d.ftPtCT, d.salaryRange, d.compType, d.shiftHours, d.jobRefNum, d.location]
-        .filter(v => v && v.trim()).length;
       if (score(fresh) > score(current)) {
         _lastExtractedData = fresh;
         onImproved(fresh);
+        return true;
       }
-    }, 1200);
+      return false;
+    };
+    setTimeout(() => { if (!attempt()) setTimeout(attempt, 1800); }, 1200);
   }
 
   function doShowCodaModal() {
