@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.13.1]
+- LinkedIn: added SDUI-layout fallback for the new search-results detail panel (no `h1`, hashed class names); title extracted from `a[href*="/jobs/view/"]`, employer from `[aria-label^="Company,"]`, location from the metadata `<p>` with `·` separator and `<strong>` time indicator
+- LinkedIn: excluded `document.title` from position fallback (search-page titles contain "N notifications | LinkedIn", not the job title)
+
+## [3.13.0]
+- Squarespace: added site-specific extraction block targeting `.job__location > div`, `.job__description`, salary h3 pattern, and `#LI-Remote`/`#LI-Hybrid` hashtags; added `sqContentObserver` to re-extract once React-loaded content arrives in the DOM (with 8s timeout fallback)
+- Greenhouse: added `panelGuard` MutationObserver watching `<html>` direct children to immediately re-append the panel when Greenhouse's React evicts it, replacing the previous 300ms navObserver delay
+
 ## [3.2.0]
 - Added Site Matching modal — view and edit which domains/URL patterns activate the script
 - Settings panel redesigned with quick-input fields for domain and pattern rules

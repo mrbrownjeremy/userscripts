@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.12.21
+// @version      3.13.1
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -271,12 +271,9 @@
     .jdg-field textarea:focus { border-color: #4a4adf; background: #fff; }
     .jdg-field textarea { resize: vertical; min-height: 80px; }
 
-    .jdg-interest-wrap { display: flex; align-items: center; gap: 8px; }
-    .jdg-interest-wrap input[type=range] { flex: 1; accent-color: #4a4adf !important; appearance: auto !important; -webkit-appearance: auto !important; height: auto !important; width: auto !important; }
-    .jdg-interest-val {
-      width: 22px; text-align: center;
-      font-weight: 700; color: #4a4adf;
-    }
+    .jdg-interest-wrap { display: flex; align-items: center; gap: 6px; }
+    .jdg-interest-wrap input[type=radio] { accent-color: #4a4adf; cursor: pointer; width: 15px; height: 15px; margin: 0; flex-shrink: 0; }
+    .jdg-interest-lo, .jdg-interest-hi { font-size: 11px; color: #888; font-weight: 600; letter-spacing: 0.02em; }
 
     .jdg-multisel {
       border: 1px solid #ddd;
@@ -569,7 +566,7 @@
     .jdg-grid          { display: grid !important; grid-template-columns: 1fr 1fr !important; }
     .jdg-field         { display: flex !important; flex-direction: column !important; }
     .jdg-field label   { display: block !important; }
-    .jdg-interest-wrap { display: flex !important; }
+    .jdg-interest-wrap { display: flex !important; align-items: center !important; }
     .jdg-multisel      { display: flex !important; flex-wrap: wrap !important; }
     .jdg-chip          { display: flex !important; }
     .jdg-modal-footer  { display: flex !important; }
@@ -705,7 +702,7 @@
       description: '', jobRefNum: '', remotePolicy: '', ftPtCT: '',
       salaryRange: '', compType: '', industries: [], hrsWk: '',
       channel: detectChannel(), contact: '', contactTitle: '',
-      phoneEmail: '', status: 'Considering', interest: 3,
+      phoneEmail: '', status: 'Considering', interest: 2,
       connectionStrength: 'None', shiftHours: '',
       responsibilities: '', requirements: '', benefits: '',
     };
@@ -833,6 +830,37 @@
       }
     }
 
+    // ── Squarespace-specific extraction ──────────────────────────────────────
+    // Squarespace's React ATS loads job data via API after page load, so DOM
+    // content may not be present at initial extraction — target their specific
+    // class structure when it does exist, and rely on the sqContentObserver
+    // (end of file) to re-extract once the content arrives.
+    if (location.hostname.includes('squarespace.com')) {
+      if (!data.position) {
+        const el = document.querySelector('.job__title h1, [class*="job__title"] h1');
+        if (el) data.position = clean(el.textContent);
+      }
+      if (!data.location) {
+        const el = document.querySelector('.job__location > div');
+        if (el) data.location = clean(el.textContent);
+      }
+      if (!data.description) {
+        const el = document.querySelector('.job__description');
+        if (el) data.description = stripHtml(el.innerHTML);
+      }
+      // Salary from h3 headings in description body
+      if (!data.salaryRange && data.description) {
+        const m = data.description.match(/\$[\d,]+(?:\s*[-–]\s*\$[\d,]+)?(?:\s*\/\s*(?:hr|hour|yr|year|mo|month))?/i);
+        if (m) data.salaryRange = m[0].trim();
+      }
+      // Remote/employment type from LinkedIn hashtags embedded in description
+      if (!data.remotePolicy && data.description) {
+        if (/#LI-Remote\b/i.test(data.description))       data.remotePolicy = 'Remote';
+        else if (/#LI-Hybrid\b/i.test(data.description))  data.remotePolicy = 'Hybrid';
+        else if (/#LI-Onsite\b/i.test(data.description))  data.remotePolicy = 'On-site';
+      }
+    }
+
     // ── LinkedIn-specific extraction ──────────────────────────────────────────
     // Overrides ld+json and generic DOM selectors for LinkedIn because:
     //   1. ld+json may reflect the *first* job loaded on the search page, not
@@ -890,6 +918,39 @@
         }
       }
 
+      // ── SDUI layout fallback (new search-results detail panel — no h1, hashed classes) ──
+      // Stable anchors: data-sdui-screen attribute on the panel; /jobs/view/ link for title;
+      // aria-label="Company, Name." for employer; meta <p> with · separator for location.
+      const sdPanel = document.querySelector('[data-sdui-screen*="JobDetails"]');
+      if (sdPanel) {
+        if (!data.position) {
+          const sdTitle = sdPanel.querySelector('a[href*="/jobs/view/"]');
+          if (sdTitle) data.position = clean(sdTitle.textContent);
+        }
+        if (!data.employer) {
+          const sdCompEl = sdPanel.querySelector('[aria-label^="Company,"]');
+          if (sdCompEl) {
+            const m = sdCompEl.getAttribute('aria-label').match(/^Company,\s*(.+?)\.?\s*$/i);
+            if (m) data.employer = m[1].trim();
+          }
+        }
+        if (!data.location) {
+          // Meta paragraph: "City, ST · 23 hours ago · N applicants" — <strong> marks the time
+          const metaP = [...sdPanel.querySelectorAll('p')]
+            .find(p => p.textContent.includes('·') && p.querySelector('strong'));
+          if (metaP) {
+            const dotIdx = metaP.textContent.indexOf('·');
+            if (dotIdx > 0) data.location = metaP.textContent.slice(0, dotIdx)
+              .replace(/\s*\((?:Remote|Hybrid|On-?site)\)/i, '').trim();
+          }
+        }
+        if (!data.description) {
+          const sdDesc = sdPanel.querySelector('[data-sdui-component*="aboutTheJob"] [data-testid="expandable-text-box"],' +
+            '[data-sdui-component*="aboutTheJob"]');
+          if (sdDesc) data.description = stripHtml(sdDesc.innerHTML);
+        }
+      }
+
       // ── Salary — preference-buttons row, excluding work-mode labels ──
       const liSalaryBtns = document.querySelectorAll('.job-details-fit-level-preferences button');
       const liSalary = [...liSalaryBtns]
@@ -933,6 +994,7 @@
       '[class*="job__description"]',
       '[class*="description__text"]','[id*="job-description"]',
       '.posting-description','.job-details',
+      '[class*="job_content__"]',
       '[data-testid*="description"]',
       '[data-qa="requirementFieldContent"]',
       '.jd-info',
@@ -1024,8 +1086,8 @@
       }
     }
 
-    // Page title fallback for position
-    if (!data.position) {
+    // Page title fallback for position (skip LinkedIn — its title shows "N notifications | LinkedIn")
+    if (!data.position && !isLinkedIn) {
       const title = document.title;
       const sep = title.search(/[-|@–]/);
       data.position = sep > 0 ? title.slice(0, sep).trim() : title.trim();
@@ -1058,6 +1120,10 @@
     if (!data.ftPtCT) {
       const raw = lf(['status', 'employment type', 'job type', 'type', 'employment', 'position type']);
       if (raw) data.ftPtCT = mapEmploymentType(raw) || data.ftPtCT;
+    }
+    // Last resort: infer from job title prefix (e.g. "CONTRACT - Marketing Coordinator")
+    if (!data.ftPtCT && data.position) {
+      data.ftPtCT = mapEmploymentType(data.position);
     }
     if (!data.jobRefNum) {
       data.jobRefNum = lf(['job id', 'job #', 'job ref', 'req id', 'requisition id', 'requisition #', 'reference #']);
@@ -1188,11 +1254,16 @@
       data.compType = inferCompType(data.description);
     }
 
-    // Section extraction — prefer DOM HTML when ld+json gave a flat (no-newline) blob
+    // Section extraction — prefer DOM HTML over ld+json when DOM has more content.
+    // ld+json descriptions are often truncated (e.g. just a "Position Summary" paragraph)
+    // while the DOM contains the full duties/requirements sections.
     let sectionSource = data.description;
-    if (sectionSource && !sectionSource.includes('\n')) {
-      const descEl = document.querySelector(DESC_SELECTORS);
-      if (descEl) sectionSource = stripHtml(descEl.innerHTML);
+    const sectionDescEl = document.querySelector(DESC_SELECTORS);
+    if (sectionDescEl) {
+      const domText = stripHtml(sectionDescEl.innerHTML);
+      if (!sectionSource || !sectionSource.includes('\n') || domText.length > sectionSource.length) {
+        sectionSource = domText;
+      }
     }
     const sections = extractDescriptionSections(sectionSource);
     data.responsibilities = sections.responsibilities;
@@ -1851,9 +1922,9 @@
       s.split(/\s+/).length <= 8 &&
       !/\d+\+?\s*(years?|months?|yrs?)\b/i.test(s);
 
-    const RESP_RE = /^(responsibilities(\s+include)?|what (you('ll|'d| will)( \w+)? do|you('re)? ?(going to )?doing|you'd be doing)|your (role|responsibilities)|key responsibilities|day[\s-]to[\s-]day|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|you will be responsible for|what does the job involve|the role|role (and|&) responsibilities)[\s:]*$/i;
+    const RESP_RE = /^(responsibilities(\s+include)?|what (you('ll|'d| will)( \w+)? do|you('re)? ?(going to )?doing|you'd be doing)|your (role|responsibilities)|key responsibilities|day[\s-]to[\s-]day|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|you will be responsible for|what does the job involve|the role|role (and|&) responsibilities)[\s:]*$/i;
 
-    const REQ_RE = /^(requirements|qualifications|what (we('re| are) looking for|you('ll| will) (need|bring|offer)|you need|you('ll| will)? (bring|offer)|you should have|you have)|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|preferred skills|about you|skills (and|&) experience|required skills|experience required|we('d| would) love to hear from you.*|work experience|what you should have|who you are|your background|(the )?ideal candidate.*|you bring|what you bring|technical (requirements|skills|qualifications)|we('re| are) looking for|knowledge (and|&) skills|education (and|&) experience)[\s:]*$/i;
+    const REQ_RE = /^(requirements|qualifications|what (we('re| are) looking for|you('ll| will) (need|bring|offer)|you need|you('ll| will)? (bring|offer)|you should have|you have)|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|we('d| would) love to hear from you.*|work experience|what you should have|who you are|your background|(the )?ideal candidate.*|you bring|what you bring|technical (requirements|skills|qualifications)|we('re| are) looking for|knowledge (and|&) skills|education (and|&) experience|qualifications (and|&) experience)[\s:]*$/i;
 
     const EDU_RE = /^(education(al)?( requirements| background| qualifications| experience)?|degree (requirements|preferred|required|qualifications)|academic (requirements|background|qualifications)|certifications? (and|&) education)[\s:]*$/i;
 
@@ -1865,8 +1936,8 @@
     // Used when the job post doesn't separate the heading into its own paragraph.
     const checkInlineHeading = (ln) => {
       const pairs = [
-        [/^(responsibilities(\s+include)?|the role|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|key responsibilities|day[\s-]to[\s-]day)\s*:?\s+/i, 'resp'],
-        [/^(requirements|qualifications|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|preferred skills|about you|skills (and|&) experience|required skills|experience required|work experience|your background|(the )?ideal candidate|you bring|what you bring|technical (requirements|skills)|we('re| are) looking for)\s*:?\s+/i, 'req'],
+        [/^(responsibilities(\s+include)?|the role|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|key responsibilities|day[\s-]to[\s-]day)\s*:?\s+/i, 'resp'],
+        [/^(requirements|qualifications|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|work experience|your background|(the )?ideal candidate|you bring|what you bring|technical (requirements|skills)|we('re| are) looking for|qualifications (and|&) experience)\s*:?\s+/i, 'req'],
         [/^(education(al)?( requirements| background| qualifications| experience)?|degree (requirements|preferred|required)|academic (requirements|background|qualifications))\s*:?\s+/i, 'edu'],
         [/^(benefits?( (and|&) (compensation|perks?))?|perks?( (and|&) benefits?)?|compensation (and|&) benefits?|total rewards?|employee benefits?)\s*:?\s+/i, 'ben'],
       ];
@@ -1964,9 +2035,16 @@
   }
 
   // ─── Floating Panel ───────────────────────────────────────────────────────────
+  let _suppressPanelGuard = false;
+
   function buildPanel() {
     const existing = document.getElementById('jdg-panel');
-    if (existing) existing.remove();
+    if (existing) {
+      _suppressPanelGuard = true;
+      existing.remove();
+      // Clear after microtasks (including MutationObserver callbacks) have flushed
+      setTimeout(() => { _suppressPanelGuard = false; }, 0);
+    }
 
     const panel = document.createElement('div');
     panel.id = 'jdg-panel';
@@ -2177,10 +2255,13 @@
 
         <div class="jdg-group"><span class="jdg-group-label">Addt'l Info</span><span class="jdg-group-line"></span></div>
         <div class="jdg-field">
-          <label>Interest (1–5)</label>
+          <label>Interest</label>
           <div class="jdg-interest-wrap">
-            <input type="range" id="jdg-interest" min="1" max="5" step="1" value="${data.interest}">
-            <span class="jdg-interest-val" id="jdg-interest-val">${data.interest}</span>
+            <span class="jdg-interest-lo">Lo</span>
+            <input type="radio" name="jdg-interest" value="1" ${data.interest === 1 ? 'checked' : ''}>
+            <input type="radio" name="jdg-interest" value="2" ${data.interest !== 1 && data.interest !== 3 ? 'checked' : ''}>
+            <input type="radio" name="jdg-interest" value="3" ${data.interest === 3 ? 'checked' : ''}>
+            <span class="jdg-interest-hi">Hi</span>
           </div>
         </div>
         ${selectField('connectionStrength', 'Connection Strength', CONNSTR_OPTIONS, data.connectionStrength)}
@@ -2259,10 +2340,6 @@
     };
     overlay._jdgSave = saveState;
 
-    // ── Interest slider ──
-    const slider = modal.querySelector('#jdg-interest');
-    const sliderVal = modal.querySelector('#jdg-interest-val');
-    slider.addEventListener('input', () => { sliderVal.textContent = slider.value; });
 
     // ── Description edit toggle ──
     modal.querySelector('#jdg-desc-edit-btn').addEventListener('click', () => {
@@ -2524,7 +2601,7 @@
       channel:           v('channel'),
       status:            'Considering',
       industries:        selectedIndustries,
-      interest:          parseInt(modal.querySelector('#jdg-interest')?.value || '3'),
+      interest:          parseInt(modal.querySelector('input[name="jdg-interest"]:checked')?.value || '2'),
       connectionStrength: v('connectionStrength'),
       shiftHours:         v('shiftHours'),
       description:        modal.querySelector('#jdg-f-description')?.value ?? fullDescription,
@@ -3141,6 +3218,52 @@
     }, 300);
   });
   navObserver.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Guard against Greenhouse (and similar React apps) evicting the panel from <html>.
+  // Watches only direct children of <html> so it catches the removal immediately
+  // without the 300 ms navObserver delay. _suppressPanelGuard prevents re-appending
+  // the old panel node when buildPanel() intentionally removes it before rebuilding.
+  const panelGuard = new MutationObserver((mutations) => {
+    if (_suppressPanelGuard) return;
+    for (const m of mutations) {
+      for (const node of m.removedNodes) {
+        if (node.id === 'jdg-panel') {
+          document.documentElement.appendChild(node);
+          return;
+        }
+      }
+    }
+  });
+  panelGuard.observe(document.documentElement, { childList: true });
+
+  // Squarespace loads job data via API after page load — the initial extraction
+  // often runs before the DOM content is present. Watch for the job content to
+  // arrive, then re-extract and cache the result so the Coda modal gets good data.
+  if (location.hostname.includes('squarespace.com') && pageMatchesAllowlist()) {
+    let _sqContentLoaded = false;
+    const sqContentObserver = new MutationObserver(() => {
+      if (_sqContentLoaded) return;
+      if (!document.querySelector('.job__description, .job__location > div')) return;
+      _sqContentLoaded = true;
+      sqContentObserver.disconnect();
+      const fresh = extractJobData();
+      if (fresh.description || fresh.location || fresh.salaryRange) {
+        _lastExtractedData = fresh;
+        updateGrabIndicator();
+      }
+    });
+    sqContentObserver.observe(document.body, { childList: true, subtree: true });
+    // Timeout fallback in case the MutationObserver misses the content
+    setTimeout(() => {
+      if (!_sqContentLoaded) {
+        const fresh = extractJobData();
+        if (fresh.description || fresh.location || fresh.salaryRange) {
+          _lastExtractedData = fresh;
+          updateGrabIndicator();
+        }
+      }
+    }, 8000);
+  }
 
   // Dismiss any open JDG modal on Escape (save Coda modal edits first)
   document.addEventListener('keydown', (e) => {
