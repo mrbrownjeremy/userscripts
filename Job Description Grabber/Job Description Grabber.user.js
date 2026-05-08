@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.13.1
+// @version      3.14.0
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -611,6 +611,16 @@
     catch { return []; }
   }
   function saveDomainIndustries(arr) { GM_setValue('domainIndustries', JSON.stringify(arr)); }
+  function getRespPhrases() {
+    const s = GM_getValue('respPhrases', '');
+    return s ? s.split('\n').map(p => p.trim()).filter(Boolean) : [];
+  }
+  function saveRespPhrases(phrases) { GM_setValue('respPhrases', phrases.join('\n')); }
+  function getReqPhrases() {
+    const s = GM_getValue('reqPhrases', '');
+    return s ? s.split('\n').map(p => p.trim()).filter(Boolean) : [];
+  }
+  function saveReqPhrases(phrases) { GM_setValue('reqPhrases', phrases.join('\n')); }
   function getHighlightEnabled() { return GM_getValue('highlightEnabled', true); }
   function getHighlightOrange()  { return GM_getValue('highlightOrange', '#ffcc80'); }
   function getHighlightYellow()  { return GM_getValue('highlightYellow', '#fff59d'); }
@@ -1922,9 +1932,13 @@
       s.split(/\s+/).length <= 8 &&
       !/\d+\+?\s*(years?|months?|yrs?)\b/i.test(s);
 
-    const RESP_RE = /^(responsibilities(\s+include)?|what (you('ll|'d| will)( \w+)? do|you('re)? ?(going to )?doing|you'd be doing)|your (role|responsibilities)|key responsibilities|day[\s-]to[\s-]day|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|you will be responsible for|what does the job involve|the role|role (and|&) responsibilities)[\s:]*$/i;
+    const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const userRespExtra = getRespPhrases().map(escRe).join('|');
+    const userReqExtra  = getReqPhrases().map(escRe).join('|');
 
-    const REQ_RE = /^(requirements|qualifications|what (we('re| are) looking for|you('ll| will) (need|bring|offer)|you need|you('ll| will)? (bring|offer)|you should have|you have)|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|we('d| would) love to hear from you.*|work experience|what you should have|who you are|your background|(the )?ideal candidate.*|you bring|what you bring|technical (requirements|skills|qualifications)|we('re| are) looking for|knowledge (and|&) skills|education (and|&) experience|qualifications (and|&) experience)[\s:]*$/i;
+    const RESP_RE = new RegExp('^(responsibilities(\\s+include)?|what (you(\'ll|\'d| will)(\\s+\\w+)? do|you(\'re)? ?(going to )?doing|you\'d be doing)|your (role|responsibilities)|key responsibilities|day[\\s-]to[\\s-]day|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|you will be responsible for|what does the job involve|the role|role (and|&) responsibilities' + (userRespExtra ? '|' + userRespExtra : '') + ')[\\s:]*$', 'i');
+
+    const REQ_RE = new RegExp('^(requirements|qualifications|what (we(\'re| are) looking for|you(\'ll| will) (need|bring|offer)|you need|you(\'ll| will)? (bring|offer)|you should have|you have)|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|we(\'d| would) love to hear from you.*|work experience|what you should have|who you are|your background|(the )?ideal candidate.*|you bring|what you bring|technical (requirements|skills|qualifications)|we(\'re| are) looking for|knowledge (and|&) skills|education (and|&) experience|qualifications (and|&) experience' + (userReqExtra ? '|' + userReqExtra : '') + ')[\\s:]*$', 'i');
 
     const EDU_RE = /^(education(al)?( requirements| background| qualifications| experience)?|degree (requirements|preferred|required|qualifications)|academic (requirements|background|qualifications)|certifications? (and|&) education)[\s:]*$/i;
 
@@ -1936,8 +1950,8 @@
     // Used when the job post doesn't separate the heading into its own paragraph.
     const checkInlineHeading = (ln) => {
       const pairs = [
-        [/^(responsibilities(\s+include)?|the role|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|key responsibilities|day[\s-]to[\s-]day)\s*:?\s+/i, 'resp'],
-        [/^(requirements|qualifications|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|work experience|your background|(the )?ideal candidate|you bring|what you bring|technical (requirements|skills)|we('re| are) looking for|qualifications (and|&) experience)\s*:?\s+/i, 'req'],
+        [new RegExp('^(responsibilities(\\s+include)?|the role|job duties( (and|&) responsibilities)?|job description|duties( (and|&) responsibilities)?|(description|overview|summary|list) of (duties|responsibilities)|about the role|in this role( you will)?|role overview|(primary|core|essential|main|key) (responsibilities|duties|functions)|position responsibilities|key responsibilities|day[\\s-]to[\\s-]day' + (userRespExtra ? '|' + userRespExtra : '') + ')\\s*:?\\s+', 'i'), 'resp'],
+        [new RegExp('^(requirements|qualifications|must.?haves?|(minimum|basic|required|preferred|desired|nice.to.have) (qualifications|skills|requirements)|(summary|overview|list) of (requirements|qualifications)|preferred skills|about you|skills (and|&) experience|required skills|experience required|work experience|your background|(the )?ideal candidate|you bring|what you bring|technical (requirements|skills)|we(\'re| are) looking for|qualifications (and|&) experience' + (userReqExtra ? '|' + userReqExtra : '') + ')\\s*:?\\s+', 'i'), 'req'],
         [/^(education(al)?( requirements| background| qualifications| experience)?|degree (requirements|preferred|required)|academic (requirements|background|qualifications))\s*:?\s+/i, 'edu'],
         [/^(benefits?( (and|&) (compensation|perks?))?|perks?( (and|&) benefits?)?|compensation (and|&) benefits?|total rewards?|employee benefits?)\s*:?\s+/i, 'ben'],
       ];
@@ -2928,6 +2942,8 @@
     const currentPos = getPosition();
     const currentSc  = getShortcut();
     const currentTok = getToken();
+    const currentRespPhrases = getRespPhrases().join('\n');
+    const currentReqPhrases  = getReqPhrases().join('\n');
 
     modal.innerHTML = `
       <button class="jdg-close-btn" id="jdg-settings-close" style="pointer-events:all;z-index:1;">✕</button>
@@ -2958,6 +2974,16 @@
             <button class="jdg-btn-sm jdg-btn-add" id="jdg-shortcut-record">Record</button>
             <button class="jdg-btn-sm jdg-btn-clear" id="jdg-shortcut-clear">Clear</button>
           </div>
+        </div>
+
+        <div class="jdg-settings-section">
+          <h3>Custom Section Headings</h3>
+          <p style="font-size:11px;color:#888;margin:0 0 8px;">Extra phrases to recognise as Responsibilities or Requirements headings. One phrase per line, plain text (no regex).</p>
+          <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;">Responsibilities</label>
+          <textarea id="jdg-resp-phrases" rows="3" style="width:100%;box-sizing:border-box;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:6px;" placeholder="e.g. What you'll be doing">${escHtml(currentRespPhrases)}</textarea>
+          <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;">Requirements</label>
+          <textarea id="jdg-req-phrases" rows="3" style="width:100%;box-sizing:border-box;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:6px;" placeholder="e.g. What we're looking for">${escHtml(currentReqPhrases)}</textarea>
+          <button class="jdg-btn-sm jdg-btn-add" id="jdg-phrases-save">Save</button>
         </div>
 
         <div class="jdg-settings-section">
@@ -3083,6 +3109,14 @@
       const tok = modal.querySelector('#jdg-token-input').value.trim();
       GM_setValue('codaToken', tok);
       flashSettingsMsg(modal, 'Token saved');
+    });
+
+    modal.querySelector('#jdg-phrases-save').addEventListener('click', () => {
+      const respLines = modal.querySelector('#jdg-resp-phrases').value.split('\n').map(s => s.trim()).filter(Boolean);
+      const reqLines  = modal.querySelector('#jdg-req-phrases').value.split('\n').map(s => s.trim()).filter(Boolean);
+      saveRespPhrases(respLines);
+      saveReqPhrases(reqLines);
+      flashSettingsMsg(modal, 'Headings saved');
     });
 
     // Position buttons
