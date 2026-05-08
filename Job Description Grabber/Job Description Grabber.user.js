@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.14.3
+// @version      3.14.4
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -621,6 +621,7 @@
     return s ? s.split('\n').map(p => p.trim()).filter(Boolean) : [];
   }
   function saveReqPhrases(phrases) { GM_setValue('reqPhrases', phrases.join('\n')); }
+  function getCmdSSave() { return GM_getValue('cmdSSave', true); }
   function getHighlightEnabled() { return GM_getValue('highlightEnabled', true); }
   function getHighlightOrange()  { return GM_getValue('highlightOrange', '#ffcc80'); }
   function getHighlightYellow()  { return GM_getValue('highlightYellow', '#fff59d'); }
@@ -2447,17 +2448,25 @@
     };
     modal.querySelector('#jdg-send').addEventListener('click', doSend);
 
-    // ⌘Enter submits when the modal is open; cleaned up whenever overlay leaves the DOM
+    // ⌘Enter / ⌘S submit when the modal is open; cleaned up whenever overlay leaves the DOM
     const cmdEnterHandler = (e) => {
       if ((e.metaKey || e.ctrlKey) && (e.key === 'Enter' || e.key === 'Return')) {
         e.preventDefault();
         doSend();
       }
     };
+    const cmdSHandler = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 's' && getCmdSSave()) {
+        e.preventDefault();
+        doSend();
+      }
+    };
     document.addEventListener('keydown', cmdEnterHandler);
+    document.addEventListener('keydown', cmdSHandler);
     new MutationObserver((_, obs) => {
       if (!document.getElementById('jdg-overlay')) {
         document.removeEventListener('keydown', cmdEnterHandler);
+        document.removeEventListener('keydown', cmdSHandler);
         obs.disconnect();
       }
     }).observe(document.body, { childList: true });
@@ -2981,6 +2990,10 @@
             <button class="jdg-btn-sm jdg-btn-add" id="jdg-shortcut-record">Record</button>
             <button class="jdg-btn-sm jdg-btn-clear" id="jdg-shortcut-clear">Clear</button>
           </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:10px;">
+            <input type="checkbox" id="jdg-cmds-toggle" ${getCmdSSave() ? 'checked' : ''}>
+            <span style="font-size:13px;">⌘S saves when Coda modal is open</span>
+          </label>
         </div>
 
         <div class="jdg-settings-section">
@@ -2991,6 +3004,7 @@
           <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;">Requirements</label>
           <textarea id="jdg-req-phrases" rows="3" style="width:100%;box-sizing:border-box;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:6px;border:1px solid #ccc;border-radius:4px;padding:4px 6px;" placeholder="e.g. What we're looking for">${escHtml(currentReqPhrases)}</textarea>
           <button class="jdg-btn-sm jdg-btn-clear" id="jdg-phrases-save" disabled style="opacity:0.45;cursor:default;">Save</button>
+          <button class="jdg-btn-sm jdg-btn-clear" id="jdg-phrases-save-dismiss" disabled style="opacity:0.45;cursor:default;margin-left:6px;">Save &amp; Dismiss</button>
         </div>
 
         <div class="jdg-settings-section">
@@ -3119,28 +3133,42 @@
     });
 
     (function initPhrasesSave() {
-      const saveBtn  = modal.querySelector('#jdg-phrases-save');
-      const respArea = modal.querySelector('#jdg-resp-phrases');
-      const reqArea  = modal.querySelector('#jdg-req-phrases');
+      const saveBtn         = modal.querySelector('#jdg-phrases-save');
+      const saveDismissBtn  = modal.querySelector('#jdg-phrases-save-dismiss');
+      const respArea        = modal.querySelector('#jdg-resp-phrases');
+      const reqArea         = modal.querySelector('#jdg-req-phrases');
       const enableSave = () => {
-        saveBtn.disabled = false;
-        saveBtn.classList.replace('jdg-btn-clear', 'jdg-btn-add');
-        saveBtn.style.opacity = '';
-        saveBtn.style.cursor  = '';
+        [saveBtn, saveDismissBtn].forEach(btn => {
+          btn.disabled = false;
+          btn.classList.replace('jdg-btn-clear', 'jdg-btn-add');
+          btn.style.opacity = '';
+          btn.style.cursor  = '';
+        });
       };
       respArea.addEventListener('input', enableSave);
       reqArea.addEventListener('input', enableSave);
-      saveBtn.addEventListener('click', () => {
-        if (saveBtn.disabled) return;
+      const doSave = () => {
         const respLines = respArea.value.split('\n').map(s => s.trim()).filter(Boolean);
         const reqLines  = reqArea.value.split('\n').map(s => s.trim()).filter(Boolean);
         saveRespPhrases(respLines);
         saveReqPhrases(reqLines);
-        saveBtn.disabled = true;
-        saveBtn.classList.replace('jdg-btn-add', 'jdg-btn-clear');
-        saveBtn.style.opacity = '0.45';
-        saveBtn.style.cursor  = 'default';
+        [saveBtn, saveDismissBtn].forEach(btn => {
+          btn.disabled = true;
+          btn.classList.replace('jdg-btn-add', 'jdg-btn-clear');
+          btn.style.opacity = '0.45';
+          btn.style.cursor  = 'default';
+        });
+        return true;
+      };
+      saveBtn.addEventListener('click', () => {
+        if (saveBtn.disabled) return;
+        doSave();
         flashSettingsMsg(modal, 'Headings saved');
+      });
+      saveDismissBtn.addEventListener('click', () => {
+        if (saveDismissBtn.disabled) return;
+        doSave();
+        overlay.remove();
       });
     })();
 
@@ -3165,6 +3193,9 @@
       GM_setValue('shortcut', '');
       modal.querySelector('#jdg-shortcut-input').value = '';
       registerShortcut();
+    });
+    modal.querySelector('#jdg-cmds-toggle').addEventListener('change', (e) => {
+      GM_setValue('cmdSSave', e.target.checked);
     });
 
     // Collapsible toggle
