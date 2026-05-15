@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.14.4
+// @version      3.15.0
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -202,100 +202,7 @@
     #jdg-panel.pos-top-left  .jdg-tooltip { bottom: auto; top: calc(100% + 6px); }
     .jdg-pill:hover .jdg-tooltip { display: block; }
 
-    /* ── Overlay & Modal ── */
-    #jdg-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: 2147483646;
-      display: flex; align-items: center; justify-content: center;
-    }
-    #jdg-modal {
-      background: #fff;
-      border-radius: 12px;
-      width: min(680px, 94vw);
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 13px;
-      color: #1a1a1a;
-      position: relative;
-      overflow: hidden;
-    }
-    #jdg-modal-body {
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 24px 28px 8px;
-      flex: 1;
-      min-width: 0;
-    }
-    #jdg-modal h2 {
-      margin: 0 0 18px;
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a2e;
-    }
-    .jdg-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 16px;
-    }
-    .jdg-field { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-    .jdg-field.full { grid-column: 1 / -1; }
-    .jdg-field label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #666;
-    }
-    .jdg-field input,
-    .jdg-field select,
-    .jdg-field textarea {
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 5px 8px;
-      font-size: 13px;
-      font-family: inherit;
-      color: #1a1a1a;
-      background: #fafafa;
-      outline: none;
-      transition: border-color 0.15s;
-      width: 100%;
-      box-sizing: border-box;
-      min-width: 0;
-    }
-    .jdg-field input:focus,
-    .jdg-field select:focus,
-    .jdg-field textarea:focus { border-color: #4a4adf; background: #fff; }
-    .jdg-field textarea { resize: vertical; min-height: 80px; }
-
-    .jdg-interest-wrap { display: flex; align-items: center; gap: 6px; }
-    .jdg-interest-wrap input[type=radio] { accent-color: #4a4adf; cursor: pointer; width: 15px; height: 15px; margin: 0; flex-shrink: 0; }
-    .jdg-interest-lo, .jdg-interest-hi { font-size: 11px; color: #888; font-weight: 600; letter-spacing: 0.02em; }
-
-    .jdg-multisel {
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      background: #fafafa;
-      padding: 4px;
-      display: flex; flex-wrap: wrap; gap: 4px;
-      min-height: 36px;
-      cursor: pointer;
-    }
-    .jdg-multisel:focus-within { border-color: #4a4adf; }
-    .jdg-chip {
-      background: #4a4adf;
-      color: #fff;
-      border-radius: 12px;
-      padding: 2px 8px;
-      font-size: 11px;
-      display: flex; align-items: center; gap: 4px;
-      cursor: default;
-    }
-    .jdg-chip-x { cursor: pointer; opacity: 0.7; font-size: 13px; line-height: 1; }
-    .jdg-chip-x:hover { opacity: 1; }
+    /* ── Industry dropdown — appended to document.body, must be in light DOM ── */
     .jdg-multisel-dropdown {
       position: fixed;
       background: #fff;
@@ -317,178 +224,6 @@
     .jdg-multisel-option.selected { color: #4a4adf; font-weight: 600; }
     .jdg-multisel-option.focused { background: #e8e8ff; }
 
-    .jdg-desc-preview {
-      background: #f5f5f5;
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 12px;
-      color: #444;
-      max-height: 90px;
-      overflow-y: auto;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-    .jdg-modal-footer {
-      display: flex; justify-content: flex-end; gap: 8px;
-      padding: 12px 28px;
-      border-top: 1px solid #eee;
-      background: #fff;
-      border-radius: 0 0 12px 12px;
-      flex-shrink: 0;
-    }
-    .jdg-btn {
-      padding: 7px 18px;
-      border-radius: 7px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      transition: background 0.15s, opacity 0.15s;
-    }
-    .jdg-btn-cancel { background: #eee; color: #333; }
-    .jdg-btn-cancel:hover { background: #ddd; }
-    .jdg-btn-send { background: #4a4adf; color: #fff; }
-    .jdg-btn-send:hover { background: #3535b5; }
-    .jdg-btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
-    .jdg-status-msg {
-      font-size: 12px; color: #666;
-      align-self: center; margin-right: auto;
-    }
-    .jdg-status-msg.error { color: #c0392b; }
-    .jdg-status-msg.success { color: #27ae60; }
-
-    /* ── Settings Modal ── */
-    #jdg-settings { }
-    #jdg-settings h2 { margin: 0 0 18px; font-size: 16px; font-weight: 700; color: #1a1a2e; }
-    .jdg-settings-section { margin-bottom: 20px; }
-    .jdg-settings-section h3 {
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; color: #888; margin: 0 0 10px;
-    }
-    .jdg-pos-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 6px; max-width: 260px;
-    }
-    .jdg-pos-btn {
-      padding: 6px; border-radius: 6px; border: 2px solid #ddd;
-      background: #fafafa; cursor: pointer; font-size: 12px;
-      text-align: center; transition: border-color 0.15s, background 0.15s;
-    }
-    .jdg-pos-btn.active { border-color: #4a4adf; background: #f0f0ff; font-weight: 700; }
-    .jdg-shortcut-wrap { display: flex; align-items: center; gap: 8px; }
-    .jdg-shortcut-input {
-      border: 1px solid #ddd; border-radius: 6px;
-      padding: 5px 10px; font-size: 13px; min-width: 160px;
-      background: #fafafa; color: #1a1a1a; cursor: pointer;
-    }
-    .jdg-shortcut-input.recording {
-      border-color: #e74c3c; background: #fff5f5;
-      animation: jdg-pulse 1s infinite;
-    }
-    @keyframes jdg-pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
-    .jdg-btn-sm {
-      padding: 4px 10px; font-size: 12px; border-radius: 5px;
-      border: none; cursor: pointer; font-weight: 600;
-    }
-    .jdg-btn-clear { background: #eee; color: #555; }
-    .jdg-btn-clear:hover { background: #ddd; }
-    .jdg-industry-list { list-style: none; padding: 0; margin: 0 0 8px; }
-    .jdg-industry-item {
-      display: flex; align-items: center; gap: 6px;
-      padding: 4px 0; border-bottom: 1px solid #f0f0f0;
-      font-size: 13px;
-    }
-    .jdg-industry-item .jdg-drag-handle {
-      cursor: grab; color: #bbb; font-size: 14px; user-select: none;
-    }
-    .jdg-industry-item .jdg-ind-name { flex: 1; }
-    .jdg-industry-item .jdg-btn-remove {
-      background: none; border: none; color: #c0392b;
-      cursor: pointer; font-size: 14px; padding: 0 2px;
-      line-height: 1;
-    }
-    .jdg-add-industry { display: flex; gap: 6px; }
-    .jdg-add-industry input {
-      flex: 1; border: 1px solid #ddd; border-radius: 6px;
-      padding: 5px 8px; font-size: 13px; background: #fafafa;
-    }
-    .jdg-btn-add { background: #4a4adf; color: #fff; }
-    .jdg-btn-add:hover { background: #3535b5; }
-    .jdg-token-wrap { display: flex; gap: 6px; align-items: center; }
-    .jdg-token-wrap input {
-      flex: 1; border: 1px solid #ddd; border-radius: 6px;
-      padding: 5px 8px; font-size: 12px; font-family: monospace;
-      background: #fafafa;
-    }
-    .jdg-close-btn {
-      position: absolute; top: 14px; right: 16px;
-      background: none; border: none; font-size: 20px;
-      cursor: pointer; color: #aaa; line-height: 1;
-    }
-    .jdg-close-btn:hover { color: #333; }
-
-    .jdg-collapsible-header {
-      display: flex; align-items: center; justify-content: space-between;
-      cursor: pointer; user-select: none;
-      margin: 0 0 0;
-    }
-    .jdg-collapsible-header h3 { margin: 0; }
-    .jdg-collapsible-arrow {
-      font-size: 10px; color: #aaa; transition: transform 0.2s;
-    }
-    .jdg-collapsible-arrow.open { transform: rotate(180deg); }
-    .jdg-collapsible-body { overflow: hidden; }
-    .jdg-collapsible-body.collapsed { display: none; }
-    .jdg-subsection { margin-top: 10px; }
-    .jdg-subsection h4 {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; color: #bbb; margin: 0 0 6px;
-    }
-    .jdg-site-header {
-      padding: 36px 28px 10px;
-      border-bottom: 1px solid #eee;
-      background: #fff;
-      flex-shrink: 0;
-    }
-    .jdg-site-header-row {
-      display: flex; align-items: center; gap: 6px;
-    }
-    .jdg-site-header-label {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; color: #888; white-space: nowrap; min-width: 64px;
-    }
-    .jdg-site-quick-input {
-      flex: 1; border: 1px solid #ddd !important; border-radius: 6px !important;
-      padding: 5px 8px !important; font-size: 12px !important;
-      font-family: monospace !important; line-height: normal !important;
-      background: #fafafa !important; color: #1a1a1a !important; outline: none !important;
-      box-sizing: border-box !important;
-    }
-    .jdg-site-quick-input:focus { border-color: #4a4adf; background: #fff; }
-    .jdg-site-quick-select {
-      flex: 1; border: 1px solid #ddd; border-radius: 6px;
-      padding: 5px 8px; font-size: 12px; background: #fafafa;
-      color: #1a1a1a; outline: none; cursor: pointer;
-    }
-    .jdg-site-quick-select:focus { border-color: #4a4adf; background: #fff; }
-    .jdg-di-item-url { font-family: monospace; font-size: 11px; color: #555; }
-    .jdg-di-item-sep { font-size: 11px; color: #bbb; margin: 0 2px; }
-    .jdg-di-item-ind { font-size: 12px; color: #1a1a1a; flex: 1; }
-
-    .jdg-group {
-      grid-column: 1 / -1;
-      display: flex; align-items: center; gap: 10px;
-      margin: 10px 0 2px;
-    }
-    .jdg-group:first-child { margin-top: 0; }
-    .jdg-group-label {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: #aaa; white-space: nowrap;
-    }
-    .jdg-group-line {
-      flex: 1; height: 1px; background: #eee;
-    }
-
     /* ── Page highlights ── */
     .jdg-hl {
       border-radius: 2px;
@@ -500,44 +235,6 @@
     .jdg-hl-orange { background: var(--jdg-hl-orange, #ffcc80) !important; }
     .jdg-hl-yellow { background: var(--jdg-hl-yellow, #fff59d) !important; }
     .jdg-hl-green  { background: var(--jdg-hl-green,  #c8e6c9) !important; }
-
-    /* ── Highlight group drag-and-drop UI ── */
-    .jdg-hl-rows { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
-    .jdg-hl-row  { display:flex; align-items:flex-start; gap:8px; }
-    .jdg-hl-row-head {
-      display:flex; align-items:center; gap:6px;
-      width:116px; flex-shrink:0; padding-top:5px;
-    }
-    .jdg-hl-row-head input[type=color] {
-      width:28px; height:22px; padding:1px 2px;
-      border:1px solid #ddd; border-radius:4px;
-      cursor:pointer; background:#fafafa; flex-shrink:0;
-    }
-    .jdg-hl-swatch-label {
-      padding:2px 8px; border-radius:3px; font-size:11px;
-      border:1px solid rgba(0,0,0,0.08); white-space:nowrap;
-      min-width:52px; text-align:center;
-    }
-    .jdg-hl-dropzone {
-      flex:1; min-height:32px;
-      display:flex; flex-wrap:wrap; align-content:flex-start; gap:4px;
-      padding:4px 6px;
-      border:1.5px dashed #d4d4d4; border-radius:8px;
-      transition:border-color 0.15s, background 0.15s;
-    }
-    .jdg-hl-dropzone.jdg-drag-over {
-      border-color:#94a3c4; background:#f0f4ff;
-    }
-    .jdg-hl-tag {
-      display:inline-flex; align-items:center;
-      padding:3px 10px; border-radius:20px;
-      font-size:11px; color:#3a5080;
-      cursor:grab; user-select:none;
-      background:#ddeeff; border:1px solid rgba(60,130,220,0.18);
-      white-space:nowrap; transition:opacity 0.1s;
-    }
-    .jdg-hl-tag:active  { cursor:grabbing; }
-    .jdg-hl-tag.jdg-dragging { opacity:0.35; }
 
     /* ── Toast notification ── */
     #jdg-toast {
@@ -554,36 +251,6 @@
     #jdg-toast.jdg-toast-show { opacity: 1; }
     #jdg-toast.jdg-toast-success { background: #1a3a2e; border-left: 3px solid #27ae60; }
     #jdg-toast.jdg-toast-error   { background: #3a1a1a; border-left: 3px solid #c0392b; }
-
-    /* ── CSS isolation: some sites (e.g. LinkedIn) override flex/grid/font globally.
-       Repeat critical layout declarations with !important so they always win. ── */
-    #jdg-modal {
-      display: flex !important; flex-direction: column !important;
-      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;
-      font-size: 13px !important; color: #1a1a1a !important;
-    }
-    #jdg-modal *, #jdg-settings * { box-sizing: border-box !important; }
-    .jdg-grid          { display: grid !important; grid-template-columns: 1fr 1fr !important; }
-    .jdg-field         { display: flex !important; flex-direction: column !important; }
-    .jdg-field label   { display: block !important; }
-    .jdg-interest-wrap { display: flex !important; align-items: center !important; }
-    .jdg-multisel      { display: flex !important; flex-wrap: wrap !important; }
-    .jdg-chip          { display: flex !important; }
-    .jdg-modal-footer  { display: flex !important; }
-    .jdg-pos-grid      { display: grid !important; }
-    .jdg-shortcut-wrap { display: flex !important; }
-    .jdg-industry-item { display: flex !important; }
-    .jdg-add-industry  { display: flex !important; }
-    .jdg-token-wrap    { display: flex !important; }
-    .jdg-collapsible-header { display: flex !important; }
-    .jdg-collapsible-body.collapsed { display: none !important; }
-    .jdg-site-header-row { display: flex !important; }
-    .jdg-group         { display: flex !important; }
-    .jdg-hl-rows       { display: flex !important; flex-direction: column !important; }
-    .jdg-hl-row        { display: flex !important; }
-    .jdg-hl-row-head   { display: flex !important; }
-    .jdg-hl-dropzone   { display: flex !important; flex-wrap: wrap !important; }
-    .jdg-hl-tag        { display: inline-flex !important; }
   `);
 
   // ─── State ───────────────────────────────────────────────────────────────────
@@ -2220,6 +1887,349 @@
     setTimeout(() => { if (!attempt()) setTimeout(attempt, 1800); }, 1200);
   }
 
+  // CSS injected into each modal's shadow root — fully isolated from host-page styles
+  const MODAL_CSS = `
+    dialog {
+      border: none;
+      padding: 0;
+      background: transparent;
+      max-width: none;
+      max-height: none;
+      overflow: visible;
+      margin: 0;
+      width: auto;
+      height: auto;
+      color: inherit;
+    }
+    dialog::backdrop { display: none; }
+
+    #jdg-modal {
+      background: #fff;
+      border-radius: 12px;
+      width: min(680px, 94vw);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      position: relative;
+      overflow: hidden;
+    }
+    #jdg-modal-body {
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 28px 8px;
+      flex: 1;
+      min-width: 0;
+    }
+    #jdg-modal h2 {
+      margin: 0 0 18px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .jdg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    .jdg-field { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .jdg-field.full { grid-column: 1 / -1; }
+    .jdg-field label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #666;
+    }
+    .jdg-field input,
+    .jdg-field select,
+    .jdg-field textarea {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #1a1a1a;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .jdg-field input:focus,
+    .jdg-field select:focus,
+    .jdg-field textarea:focus { border-color: #4a4adf; background: #fff; }
+    .jdg-field textarea { resize: vertical; min-height: 80px; }
+
+    .jdg-interest-wrap { display: flex; align-items: center; gap: 6px; }
+    .jdg-interest-wrap input[type=radio] { accent-color: #4a4adf; cursor: pointer; width: 15px; height: 15px; margin: 0; flex-shrink: 0; }
+    .jdg-interest-lo, .jdg-interest-hi { font-size: 11px; color: #888; font-weight: 600; letter-spacing: 0.02em; }
+
+    .jdg-multisel {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      padding: 4px;
+      display: flex; flex-wrap: wrap; gap: 4px;
+      min-height: 36px;
+      cursor: pointer;
+    }
+    .jdg-multisel:focus-within { border-color: #4a4adf; }
+    .jdg-chip {
+      background: #4a4adf;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      display: flex; align-items: center; gap: 4px;
+      cursor: default;
+    }
+    .jdg-chip-x { cursor: pointer; opacity: 0.7; font-size: 13px; line-height: 1; }
+    .jdg-chip-x:hover { opacity: 1; }
+
+    .jdg-desc-preview {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #444;
+      max-height: 90px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .jdg-modal-footer {
+      display: flex; justify-content: flex-end; gap: 8px;
+      padding: 12px 28px;
+      border-top: 1px solid #eee;
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      flex-shrink: 0;
+    }
+    .jdg-btn {
+      padding: 7px 18px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .jdg-btn-cancel { background: #eee; color: #333; }
+    .jdg-btn-cancel:hover { background: #ddd; }
+    .jdg-btn-send { background: #4a4adf; color: #fff; }
+    .jdg-btn-send:hover { background: #3535b5; }
+    .jdg-btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
+    .jdg-status-msg {
+      font-size: 12px; color: #666;
+      align-self: center; margin-right: auto;
+    }
+    .jdg-status-msg.error { color: #c0392b; }
+    .jdg-status-msg.success { color: #27ae60; }
+
+    /* ── Settings Modal ── */
+    #jdg-settings { }
+    #jdg-settings h2 { margin: 0 0 18px; font-size: 16px; font-weight: 700; color: #1a1a2e; }
+    .jdg-settings-section { margin-bottom: 20px; }
+    .jdg-settings-section h3 {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: #888; margin: 0 0 10px;
+    }
+    .jdg-pos-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; max-width: 260px;
+    }
+    .jdg-pos-btn {
+      padding: 6px; border-radius: 6px; border: 2px solid #ddd;
+      background: #fafafa; cursor: pointer; font-size: 12px;
+      text-align: center; transition: border-color 0.15s, background 0.15s;
+    }
+    .jdg-pos-btn.active { border-color: #4a4adf; background: #f0f0ff; font-weight: 700; }
+    .jdg-shortcut-wrap { display: flex; align-items: center; gap: 8px; }
+    .jdg-shortcut-input {
+      border: 1px solid #ddd; border-radius: 6px;
+      padding: 5px 10px; font-size: 13px; min-width: 160px;
+      background: #fafafa; color: #1a1a1a; cursor: pointer;
+    }
+    .jdg-shortcut-input.recording {
+      border-color: #e74c3c; background: #fff5f5;
+      animation: jdg-pulse 1s infinite;
+    }
+    @keyframes jdg-pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+    .jdg-btn-sm {
+      padding: 4px 10px; font-size: 12px; border-radius: 5px;
+      border: none; cursor: pointer; font-weight: 600;
+    }
+    .jdg-btn-clear { background: #eee; color: #555; }
+    .jdg-btn-clear:hover { background: #ddd; }
+    .jdg-industry-list { list-style: none; padding: 0; margin: 0 0 8px; }
+    .jdg-industry-item {
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 0; border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+    .jdg-industry-item .jdg-drag-handle {
+      cursor: grab; color: #bbb; font-size: 14px; user-select: none;
+    }
+    .jdg-industry-item .jdg-ind-name { flex: 1; }
+    .jdg-industry-item .jdg-btn-remove {
+      background: none; border: none; color: #c0392b;
+      cursor: pointer; font-size: 14px; padding: 0 2px;
+      line-height: 1;
+    }
+    .jdg-add-industry { display: flex; gap: 6px; }
+    .jdg-add-industry input {
+      flex: 1; border: 1px solid #ddd; border-radius: 6px;
+      padding: 5px 8px; font-size: 13px; background: #fafafa;
+    }
+    .jdg-btn-add { background: #4a4adf; color: #fff; }
+    .jdg-btn-add:hover { background: #3535b5; }
+    .jdg-token-wrap { display: flex; gap: 6px; align-items: center; }
+    .jdg-token-wrap input {
+      flex: 1; border: 1px solid #ddd; border-radius: 6px;
+      padding: 5px 8px; font-size: 12px; font-family: monospace;
+      background: #fafafa;
+    }
+    .jdg-close-btn {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none; font-size: 20px;
+      cursor: pointer; color: #aaa; line-height: 1;
+    }
+    .jdg-close-btn:hover { color: #333; }
+
+    .jdg-collapsible-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; user-select: none;
+      margin: 0 0 0;
+    }
+    .jdg-collapsible-header h3 { margin: 0; }
+    .jdg-collapsible-arrow {
+      font-size: 10px; color: #aaa; transition: transform 0.2s;
+    }
+    .jdg-collapsible-arrow.open { transform: rotate(180deg); }
+    .jdg-collapsible-body { overflow: hidden; }
+    .jdg-collapsible-body.collapsed { display: none; }
+    .jdg-subsection { margin-top: 10px; }
+    .jdg-subsection h4 {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: #bbb; margin: 0 0 6px;
+    }
+    .jdg-site-header {
+      padding: 36px 28px 10px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .jdg-site-header-row {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .jdg-site-header-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: #888; white-space: nowrap; min-width: 64px;
+    }
+    .jdg-site-quick-input {
+      flex: 1; border: 1px solid #ddd; border-radius: 6px;
+      padding: 5px 8px; font-size: 12px;
+      font-family: monospace; line-height: normal;
+      background: #fafafa; color: #1a1a1a; outline: none;
+      box-sizing: border-box;
+    }
+    .jdg-site-quick-input:focus { border-color: #4a4adf; background: #fff; }
+    .jdg-site-quick-select {
+      flex: 1; border: 1px solid #ddd; border-radius: 6px;
+      padding: 5px 8px; font-size: 12px; background: #fafafa;
+      color: #1a1a1a; outline: none; cursor: pointer;
+    }
+    .jdg-site-quick-select:focus { border-color: #4a4adf; background: #fff; }
+    .jdg-di-item-url { font-family: monospace; font-size: 11px; color: #555; }
+    .jdg-di-item-sep { font-size: 11px; color: #bbb; margin: 0 2px; }
+    .jdg-di-item-ind { font-size: 12px; color: #1a1a1a; flex: 1; }
+
+    .jdg-group {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: 10px;
+      margin: 10px 0 2px;
+    }
+    .jdg-group:first-child { margin-top: 0; }
+    .jdg-group-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #aaa; white-space: nowrap;
+    }
+    .jdg-group-line {
+      flex: 1; height: 1px; background: #eee;
+    }
+
+    /* ── Highlight group drag-and-drop UI ── */
+    .jdg-hl-rows { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+    .jdg-hl-row  { display:flex; align-items:flex-start; gap:8px; }
+    .jdg-hl-row-head {
+      display:flex; align-items:center; gap:6px;
+      width:116px; flex-shrink:0; padding-top:5px;
+    }
+    .jdg-hl-row-head input[type=color] {
+      width:28px; height:22px; padding:1px 2px;
+      border:1px solid #ddd; border-radius:4px;
+      cursor:pointer; background:#fafafa; flex-shrink:0;
+    }
+    .jdg-hl-swatch-label {
+      padding:2px 8px; border-radius:3px; font-size:11px;
+      border:1px solid rgba(0,0,0,0.08); white-space:nowrap;
+      min-width:52px; text-align:center;
+    }
+    .jdg-hl-dropzone {
+      flex:1; min-height:32px;
+      display:flex; flex-wrap:wrap; align-content:flex-start; gap:4px;
+      padding:4px 6px;
+      border:1.5px dashed #d4d4d4; border-radius:8px;
+      transition:border-color 0.15s, background 0.15s;
+    }
+    .jdg-hl-dropzone.jdg-drag-over {
+      border-color:#94a3c4; background:#f0f4ff;
+    }
+    .jdg-hl-tag {
+      display:inline-flex; align-items:center;
+      padding:3px 10px; border-radius:20px;
+      font-size:11px; color:#3a5080;
+      cursor:grab; user-select:none;
+      background:#ddeeff; border:1px solid rgba(60,130,220,0.18);
+      white-space:nowrap; transition:opacity 0.1s;
+    }
+    .jdg-hl-tag:active  { cursor:grabbing; }
+    .jdg-hl-tag.jdg-dragging { opacity:0.35; }
+
+    #jdg-modal {
+      display: flex !important; flex-direction: column !important;
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;
+      font-size: 13px !important; color: #1a1a1a !important;
+    }
+    #jdg-modal *, #jdg-settings * { box-sizing: border-box !important; }
+    .jdg-grid          { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+    .jdg-field         { display: flex !important; flex-direction: column !important; }
+    .jdg-field label   { display: block !important; }
+    .jdg-interest-wrap { display: flex !important; align-items: center !important; }
+    .jdg-multisel      { display: flex !important; flex-wrap: wrap !important; }
+    .jdg-chip          { display: flex !important; }
+    .jdg-modal-footer  { display: flex !important; }
+    .jdg-pos-grid      { display: grid !important; }
+    .jdg-shortcut-wrap { display: flex !important; }
+    .jdg-industry-item { display: flex !important; }
+    .jdg-add-industry  { display: flex !important; }
+    .jdg-token-wrap    { display: flex !important; }
+    .jdg-collapsible-header { display: flex !important; }
+    .jdg-collapsible-body.collapsed { display: none !important; }
+    .jdg-site-header-row { display: flex !important; }
+    .jdg-group         { display: flex !important; }
+    .jdg-hl-rows       { display: flex !important; flex-direction: column !important; }
+    .jdg-hl-row        { display: flex !important; }
+    .jdg-hl-row-head   { display: flex !important; }
+    .jdg-hl-dropzone   { display: flex !important; flex-wrap: wrap !important; }
+    .jdg-hl-tag        { display: inline-flex !important; }
+  `;
+
   function doShowCodaModal() {
     const existing = document.getElementById('jdg-overlay');
     if (existing) { existing.remove(); return; }
@@ -2231,17 +2241,18 @@
 
     const industries = getIndustries();
 
-    const overlay = document.createElement('div');
-    overlay.id = 'jdg-overlay';
-    // No background dim — modal floats freely over the page
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
+    const host = document.createElement('div');
+    host.id = 'jdg-overlay';
+    const sr = host.attachShadow({ mode: 'open' });
+    const styleEl = document.createElement('style');
+    styleEl.textContent = MODAL_CSS;
+    sr.appendChild(styleEl);
 
-    const modal = document.createElement('div');
-    modal.id = 'jdg-modal';
-    // Position top-right by default, pointer-events re-enabled on modal itself
-    modal.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;cursor:default;';
+    const dialog = document.createElement('dialog');
+    dialog.id = 'jdg-modal';
+    dialog.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;cursor:default;';
 
-    modal.innerHTML = `
+    dialog.innerHTML = `
       <button class="jdg-close-btn" id="jdg-modal-close">✕</button>
       <button class="jdg-refresh-btn" id="jdg-modal-refresh" title="Re-extract from page" style="position:absolute;top:14px;right:40px;background:none;border:none;font-size:14px;cursor:pointer;color:#aaa;line-height:1;">↺</button>
       <div class="jdg-drag-handle" id="jdg-drag-handle" style="position:absolute;top:0;left:0;right:48px;height:36px;cursor:grab;border-radius:12px 0 0 0;"></div>
@@ -2312,16 +2323,18 @@
       </div>
     `;
 
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
+    sr.appendChild(dialog);
+    document.body.appendChild(host);
+    dialog.showModal();
+    dialog.addEventListener('cancel', (e) => e.preventDefault());
 
     // ── Draggable ──
-    const handle = modal.querySelector('#jdg-drag-handle');
+    const handle = dialog.querySelector('#jdg-drag-handle');
     let dragOffsetX = 0, dragOffsetY = 0, dragging = false;
 
     handle.addEventListener('mousedown', (e) => {
       dragging = true;
-      const rect = modal.getBoundingClientRect();
+      const rect = dialog.getBoundingClientRect();
       dragOffsetX = e.clientX - rect.left;
       dragOffsetY = e.clientY - rect.top;
       handle.style.cursor = 'grabbing';
@@ -2329,11 +2342,11 @@
     });
     document.addEventListener('mousemove', (e) => {
       if (!dragging) return;
-      const x = Math.max(0, Math.min(window.innerWidth  - modal.offsetWidth,  e.clientX - dragOffsetX));
-      const y = Math.max(0, Math.min(window.innerHeight - modal.offsetHeight, e.clientY - dragOffsetY));
-      modal.style.left  = `${x}px`;
-      modal.style.top   = `${y}px`;
-      modal.style.right = 'auto';
+      const x = Math.max(0, Math.min(window.innerWidth  - dialog.offsetWidth,  e.clientX - dragOffsetX));
+      const y = Math.max(0, Math.min(window.innerHeight - dialog.offsetHeight, e.clientY - dragOffsetY));
+      dialog.style.left  = `${x}px`;
+      dialog.style.top   = `${y}px`;
+      dialog.style.right = 'auto';
     });
     document.addEventListener('mouseup', () => {
       dragging = false;
@@ -2343,24 +2356,24 @@
     // ── Multi-select industries ──
     const selectedIndustries = [...data.industries];
     buildMultiSelect(
-      modal.querySelector('#jdg-multisel'),
+      dialog.querySelector('#jdg-multisel'),
       industries,
       selectedIndustries,
-      modal
+      dialog
     );
 
     // ── Preserve edits on dismiss ──
     const saveState = () => {
-      _lastModalState = { ...gatherModalData(modal, data.description, selectedIndustries) };
+      _lastModalState = { ...gatherModalData(dialog, data.description, selectedIndustries) };
     };
-    overlay._jdgSave = saveState;
+    host._jdgSave = saveState;
 
 
     // ── Description edit toggle ──
-    modal.querySelector('#jdg-desc-edit-btn').addEventListener('click', () => {
-      const preview = modal.querySelector('#jdg-desc-preview');
-      const textarea = modal.querySelector('#jdg-f-description');
-      const btn = modal.querySelector('#jdg-desc-edit-btn');
+    dialog.querySelector('#jdg-desc-edit-btn').addEventListener('click', () => {
+      const preview = dialog.querySelector('#jdg-desc-preview');
+      const textarea = dialog.querySelector('#jdg-f-description');
+      const btn = dialog.querySelector('#jdg-desc-edit-btn');
       if (textarea.style.display === 'none') {
         preview.style.display = 'none';
         textarea.style.display = '';
@@ -2375,10 +2388,10 @@
     });
 
     // ── Benefits edit toggle ──
-    modal.querySelector('#jdg-ben-edit-btn').addEventListener('click', () => {
-      const preview = modal.querySelector('#jdg-ben-preview');
-      const textarea = modal.querySelector('#jdg-f-benefits');
-      const btn = modal.querySelector('#jdg-ben-edit-btn');
+    dialog.querySelector('#jdg-ben-edit-btn').addEventListener('click', () => {
+      const preview = dialog.querySelector('#jdg-ben-preview');
+      const textarea = dialog.querySelector('#jdg-f-benefits');
+      const btn = dialog.querySelector('#jdg-ben-edit-btn');
       if (textarea.style.display === 'none') {
         preview.style.display = 'none';
         textarea.style.display = '';
@@ -2393,10 +2406,10 @@
     });
 
     // ── Refresh button — re-extract fresh data ──
-    modal.querySelector('#jdg-modal-refresh').addEventListener('click', () => {
+    dialog.querySelector('#jdg-modal-refresh').addEventListener('click', () => {
       _lastExtractedData = null;
       _lastModalState = null;
-      overlay.remove();
+      host.remove();
       applyHighlights();
       doShowCodaModal();
     });
@@ -2408,7 +2421,7 @@
         // Silently update fields that were blank and now have data
         const update = (id, val) => {
           if (!val) return;
-          const el = modal.querySelector(`#jdg-f-${id}`);
+          const el = dialog.querySelector(`#jdg-f-${id}`);
           if (el && !el.value) el.value = val;
         };
         update('ftPtCT', fresh.ftPtCT);
@@ -2420,21 +2433,21 @@
         update('requirements', fresh.requirements);
         update('benefits', fresh.benefits);
         // Comp type select
-        const compEl = modal.querySelector('#jdg-f-compType');
+        const compEl = dialog.querySelector('#jdg-f-compType');
         if (compEl && !compEl.value && fresh.compType) compEl.value = fresh.compType;
         // FT/PT/C/T select
-        const ftEl = modal.querySelector('#jdg-f-ftPtCT');
+        const ftEl = dialog.querySelector('#jdg-f-ftPtCT');
         if (ftEl && !ftEl.value && fresh.ftPtCT) ftEl.value = fresh.ftPtCT;
       });
     }
 
     // ── Close — save edits so reopening restores them ──
-    const closeModal = () => { saveState(); overlay.remove(); };
-    modal.querySelector('#jdg-modal-close').addEventListener('click', closeModal);
-    modal.querySelector('#jdg-cancel').addEventListener('click', closeModal);
+    const closeModal = () => { saveState(); host.remove(); };
+    dialog.querySelector('#jdg-modal-close').addEventListener('click', closeModal);
+    dialog.querySelector('#jdg-cancel').addEventListener('click', closeModal);
 
     for (const id of ['jdg-add-resp-phrase', 'jdg-add-req-phrase']) {
-      modal.querySelector(`#${id}`).addEventListener('click', (e) => {
+      dialog.querySelector(`#${id}`).addEventListener('click', (e) => {
         e.preventDefault();
         doShowSettings();
       });
@@ -2443,12 +2456,12 @@
 
     // ── Send ──
     const doSend = () => {
-      const payload = gatherModalData(modal, data.description, selectedIndustries);
-      sendToCoda(payload, modal.querySelector('#jdg-status'), modal.querySelector('#jdg-send'), overlay);
+      const payload = gatherModalData(dialog, data.description, selectedIndustries);
+      sendToCoda(payload, dialog.querySelector('#jdg-status'), dialog.querySelector('#jdg-send'), host);
     };
-    modal.querySelector('#jdg-send').addEventListener('click', doSend);
+    dialog.querySelector('#jdg-send').addEventListener('click', doSend);
 
-    // ⌘Enter / ⌘S submit when the modal is open; cleaned up whenever overlay leaves the DOM
+    // ⌘Enter / ⌘S submit when the modal is open; cleaned up whenever host leaves the DOM
     const cmdEnterHandler = (e) => {
       if ((e.metaKey || e.ctrlKey) && (e.key === 'Enter' || e.key === 'Return')) {
         e.preventDefault();
@@ -2740,13 +2753,16 @@
     const existing = document.getElementById('jdg-site-overlay');
     if (existing) { existing.remove(); return; }
 
-    const overlay = document.createElement('div');
-    overlay.id = 'jdg-site-overlay';
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
+    const host = document.createElement('div');
+    host.id = 'jdg-site-overlay';
+    const sr = host.attachShadow({ mode: 'open' });
+    const styleEl = document.createElement('style');
+    styleEl.textContent = MODAL_CSS;
+    sr.appendChild(styleEl);
 
-    const modal = document.createElement('div');
-    modal.id = 'jdg-modal';
-    modal.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;max-width:480px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;cursor:default;';
+    const dialog = document.createElement('dialog');
+    dialog.id = 'jdg-modal';
+    dialog.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;max-width:480px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;cursor:default;';
 
     const domains       = getDomains();
     const patterns      = getPatterns();
@@ -2756,7 +2772,7 @@
 
     const indOptions = industries.map(i => `<option value="${escHtml(i)}">${escHtml(i)}</option>`).join('');
 
-    modal.innerHTML = `
+    dialog.innerHTML = `
       <button class="jdg-close-btn" id="jdg-site-close" style="pointer-events:all;z-index:1;">✕</button>
       <div class="jdg-site-header">
         <div class="jdg-site-header-row">
@@ -2820,25 +2836,27 @@
       </div>
     `;
 
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
+    sr.appendChild(dialog);
+    document.body.appendChild(host);
+    dialog.showModal();
+    dialog.addEventListener('cancel', (e) => e.preventDefault());
 
-    document.getElementById('jdg-site-close').addEventListener('click', () => overlay.remove());
+    dialog.querySelector('#jdg-site-close').addEventListener('click', () => host.remove());
 
     // Collapsible toggles
     [['jdg-domains-toggle', 'jdg-domains-body', 'jdg-domains-arrow'],
      ['jdg-patterns-toggle', 'jdg-patterns-body', 'jdg-patterns-arrow'],
      ['jdg-di-toggle', 'jdg-di-body', 'jdg-di-arrow']].forEach(([tog, bod, arr]) => {
-      modal.querySelector(`#${tog}`).addEventListener('click', () => {
-        modal.querySelector(`#${bod}`).classList.toggle('collapsed');
-        modal.querySelector(`#${arr}`).classList.toggle('open');
+      dialog.querySelector(`#${tog}`).addEventListener('click', () => {
+        dialog.querySelector(`#${bod}`).classList.toggle('collapsed');
+        dialog.querySelector(`#${arr}`).classList.toggle('open');
       });
     });
 
     // Quick-add domain
-    const domainListEl = modal.querySelector('#jdg-site-domain-list');
-    modal.querySelector('#jdg-domain-quick-add').addEventListener('click', () => {
-      const input = modal.querySelector('#jdg-domain-quick');
+    const domainListEl = dialog.querySelector('#jdg-site-domain-list');
+    dialog.querySelector('#jdg-domain-quick-add').addEventListener('click', () => {
+      const input = dialog.querySelector('#jdg-domain-quick');
       const val = input.value.trim();
       if (!val || domains.includes(val)) { input.select(); return; }
       domains.push(val);
@@ -2848,13 +2866,13 @@
       li.innerHTML = matchItem(val, domains.length - 1, 'domain');
       domainListEl.appendChild(li);
       input.value = '';
-      flashSiteMsg(modal, `✓ "${val}" added to domains`);
+      flashSiteMsg(dialog, `✓ "${val}" added to domains`);
     });
 
     // Quick-add pattern
-    const patternListEl = modal.querySelector('#jdg-site-pattern-list');
-    modal.querySelector('#jdg-pattern-quick-add').addEventListener('click', () => {
-      const input = modal.querySelector('#jdg-pattern-quick');
+    const patternListEl = dialog.querySelector('#jdg-site-pattern-list');
+    dialog.querySelector('#jdg-pattern-quick-add').addEventListener('click', () => {
+      const input = dialog.querySelector('#jdg-pattern-quick');
       const val = input.value.trim();
       if (!val || patterns.includes(val)) { input.select(); return; }
       patterns.push(val);
@@ -2864,14 +2882,14 @@
       li.innerHTML = matchItem(val, patterns.length - 1, 'pattern');
       patternListEl.appendChild(li);
       input.value = '';
-      flashSiteMsg(modal, `✓ "${val}" added to patterns`);
+      flashSiteMsg(dialog, `✓ "${val}" added to patterns`);
     });
 
     // Quick-add URL→Industry
-    const diListEl = modal.querySelector('#jdg-site-di-list');
-    modal.querySelector('#jdg-di-quick-add').addEventListener('click', () => {
-      const urlInput = modal.querySelector('#jdg-di-url-quick');
-      const indSel   = modal.querySelector('#jdg-di-ind-quick');
+    const diListEl = dialog.querySelector('#jdg-site-di-list');
+    dialog.querySelector('#jdg-di-quick-add').addEventListener('click', () => {
+      const urlInput = dialog.querySelector('#jdg-di-url-quick');
+      const indSel   = dialog.querySelector('#jdg-di-ind-quick');
       const url = urlInput.value.trim();
       const industry = indSel.value;
       if (!url || !industry) { urlInput.select(); return; }
@@ -2883,7 +2901,7 @@
       li.innerHTML = domainIndustryItem({ url, industry }, domainInds.length - 1);
       diListEl.appendChild(li);
       urlInput.value = '';
-      flashSiteMsg(modal, `✓ "${url}" → "${industry}" added`);
+      flashSiteMsg(dialog, `✓ "${url}" → "${industry}" added`);
     });
 
     // Remove from domain list
@@ -2946,13 +2964,16 @@
     const existing = document.getElementById('jdg-settings-overlay');
     if (existing) { existing.remove(); return; }
 
-    const overlay = document.createElement('div');
-    overlay.id = 'jdg-settings-overlay';
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
+    const host = document.createElement('div');
+    host.id = 'jdg-settings-overlay';
+    const sr = host.attachShadow({ mode: 'open' });
+    const styleEl = document.createElement('style');
+    styleEl.textContent = MODAL_CSS;
+    sr.appendChild(styleEl);
 
-    const modal = document.createElement('div');
-    modal.id = 'jdg-modal';
-    modal.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;max-width:480px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;cursor:default;';
+    const dialog = document.createElement('dialog');
+    dialog.id = 'jdg-modal';
+    dialog.style.cssText = 'position:fixed;top:60px;right:24px;pointer-events:all;max-width:480px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;cursor:default;';
 
     const industries = getIndustries();
     const currentPos = getPosition();
@@ -2961,7 +2982,7 @@
     const currentRespPhrases = getRespPhrases().join('\n');
     const currentReqPhrases  = getReqPhrases().join('\n');
 
-    modal.innerHTML = `
+    dialog.innerHTML = `
       <button class="jdg-close-btn" id="jdg-settings-close" style="pointer-events:all;z-index:1;">✕</button>
       <div id="jdg-modal-body" style="padding-top:20px;">
       <div id="jdg-settings">
@@ -3049,14 +3070,15 @@
       </div>
     `;
 
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
+    sr.appendChild(dialog);
+    document.body.appendChild(host);
+    dialog.showModal();
+    dialog.addEventListener('cancel', (e) => e.preventDefault());
 
-    // Close button — attach after DOM insertion to ensure element is live
-    document.getElementById('jdg-settings-close').addEventListener('click', () => overlay.remove());
+    dialog.querySelector('#jdg-settings-close').addEventListener('click', () => host.remove());
 
     // Highlight toggle
-    modal.querySelector('#jdg-highlight-toggle').addEventListener('change', (e) => {
+    dialog.querySelector('#jdg-highlight-toggle').addEventListener('change', (e) => {
       GM_setValue('highlightEnabled', e.target.checked);
       if (e.target.checked) applyHighlights(); else removeHighlights();
     });
@@ -3067,9 +3089,9 @@
       ['jdg-hl-color-yellow', 'highlightYellow', 'jdg-hl-swatch-yellow'],
       ['jdg-hl-color-green',  'highlightGreen',  'jdg-hl-swatch-green'],
     ]) {
-      modal.querySelector(`#${id}`).addEventListener('input', (e) => {
+      dialog.querySelector(`#${id}`).addEventListener('input', (e) => {
         GM_setValue(key, e.target.value);
-        modal.querySelector(`#${swatchId}`).style.background = e.target.value;
+        dialog.querySelector(`#${swatchId}`).style.background = e.target.value;
         applyHighlightColors();
       });
     }
@@ -3081,11 +3103,11 @@
       // Populate drop zones from saved state
       function renderTags() {
         for (const color of ['orange', 'yellow', 'green']) {
-          modal.querySelector(`#jdg-hl-zone-${color}`).innerHTML = '';
+          dialog.querySelector(`#jdg-hl-zone-${color}`).innerHTML = '';
         }
         for (const group of HIGHLIGHT_GROUPS) {
           const color = groupColors[group] || 'green';
-          const zone = modal.querySelector(`#jdg-hl-zone-${color}`);
+          const zone = dialog.querySelector(`#jdg-hl-zone-${color}`);
           if (!zone) continue;
           const tag = document.createElement('div');
           tag.className = 'jdg-hl-tag';
@@ -3105,7 +3127,7 @@
 
       // Drop zone events
       for (const color of ['orange', 'yellow', 'green']) {
-        const zone = modal.querySelector(`#jdg-hl-zone-${color}`);
+        const zone = dialog.querySelector(`#jdg-hl-zone-${color}`);
         zone.addEventListener('dragover', (e) => {
           e.preventDefault();
           e.dataTransfer.dropEffect = 'move';
@@ -3126,17 +3148,17 @@
 
       renderTags();
     })();
-    modal.querySelector('#jdg-token-save').addEventListener('click', () => {
-      const tok = modal.querySelector('#jdg-token-input').value.trim();
+    dialog.querySelector('#jdg-token-save').addEventListener('click', () => {
+      const tok = dialog.querySelector('#jdg-token-input').value.trim();
       GM_setValue('codaToken', tok);
-      flashSettingsMsg(modal, 'Token saved');
+      flashSettingsMsg(dialog, 'Token saved');
     });
 
     (function initPhrasesSave() {
-      const saveBtn         = modal.querySelector('#jdg-phrases-save');
-      const saveDismissBtn  = modal.querySelector('#jdg-phrases-save-dismiss');
-      const respArea        = modal.querySelector('#jdg-resp-phrases');
-      const reqArea         = modal.querySelector('#jdg-req-phrases');
+      const saveBtn         = dialog.querySelector('#jdg-phrases-save');
+      const saveDismissBtn  = dialog.querySelector('#jdg-phrases-save-dismiss');
+      const respArea        = dialog.querySelector('#jdg-resp-phrases');
+      const reqArea         = dialog.querySelector('#jdg-req-phrases');
       const enableSave = () => {
         [saveBtn, saveDismissBtn].forEach(btn => {
           btn.disabled = false;
@@ -3163,19 +3185,19 @@
       saveBtn.addEventListener('click', () => {
         if (saveBtn.disabled) return;
         doSave();
-        flashSettingsMsg(modal, 'Headings saved');
+        flashSettingsMsg(dialog, 'Headings saved');
       });
       saveDismissBtn.addEventListener('click', () => {
         if (saveDismissBtn.disabled) return;
         doSave();
-        overlay.remove();
+        host.remove();
       });
     })();
 
     // Position buttons
-    modal.querySelectorAll('.jdg-pos-btn').forEach(btn => {
+    dialog.querySelectorAll('.jdg-pos-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        modal.querySelectorAll('.jdg-pos-btn').forEach(b => b.classList.remove('active'));
+        dialog.querySelectorAll('.jdg-pos-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         GM_setValue('panelPosition', btn.dataset.pos);
         const panel = document.getElementById('jdg-panel');
@@ -3186,26 +3208,26 @@
     });
 
     // Shortcut
-    modal.querySelector('#jdg-shortcut-record').addEventListener('click', () => {
-      recordShortcut(modal.querySelector('#jdg-shortcut-input'));
+    dialog.querySelector('#jdg-shortcut-record').addEventListener('click', () => {
+      recordShortcut(dialog.querySelector('#jdg-shortcut-input'));
     });
-    modal.querySelector('#jdg-shortcut-clear').addEventListener('click', () => {
+    dialog.querySelector('#jdg-shortcut-clear').addEventListener('click', () => {
       GM_setValue('shortcut', '');
-      modal.querySelector('#jdg-shortcut-input').value = '';
+      dialog.querySelector('#jdg-shortcut-input').value = '';
       registerShortcut();
     });
-    modal.querySelector('#jdg-cmds-toggle').addEventListener('change', (e) => {
+    dialog.querySelector('#jdg-cmds-toggle').addEventListener('change', (e) => {
       GM_setValue('cmdSSave', e.target.checked);
     });
 
     // Collapsible toggle
-    modal.querySelector('#jdg-ind-toggle').addEventListener('click', () => {
-      modal.querySelector('#jdg-ind-body').classList.toggle('collapsed');
-      modal.querySelector('#jdg-ind-arrow').classList.toggle('open');
+    dialog.querySelector('#jdg-ind-toggle').addEventListener('click', () => {
+      dialog.querySelector('#jdg-ind-body').classList.toggle('collapsed');
+      dialog.querySelector('#jdg-ind-arrow').classList.toggle('open');
     });
 
     // Industry list
-    const listEl = modal.querySelector('#jdg-ind-list');
+    const listEl = dialog.querySelector('#jdg-ind-list');
     listEl.addEventListener('click', (e) => {
       if (e.target.classList.contains('jdg-btn-remove')) {
         const idx = parseInt(e.target.dataset.idx);
@@ -3215,8 +3237,8 @@
         listEl.querySelectorAll('.jdg-btn-remove').forEach((btn, i) => { btn.dataset.idx = i; });
       }
     });
-    modal.querySelector('#jdg-ind-add').addEventListener('click', () => {
-      const input = modal.querySelector('#jdg-ind-new');
+    dialog.querySelector('#jdg-ind-add').addEventListener('click', () => {
+      const input = dialog.querySelector('#jdg-ind-new');
       const val = input.value.trim();
       if (!val || industries.includes(val)) return;
       industries.push(val);
