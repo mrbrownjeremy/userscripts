@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Reddit Sidebar Toggle
 // @namespace    http://tampermonkey.net/
-// @version      3.5.1
-// @description  Hide Reddit sidebars, center content, adjustable text size, download posts+comments as .webarchive, and save to DEVONthink
+// @version      3.6.0
+// @description  Hide Reddit sidebars, center content, adjustable text size, download posts+comments as self-contained HTML, save to DEVONthink, sidebar peek overlay
 // @author       You
 // @match        https://www.reddit.com/*
 // @icon         https://www.redditstatic.com/shreddit/assets/favicon/64x64.png
@@ -20,6 +20,18 @@
 
     // Get current zoom level (or use default)
     let zoomLevel = GM_getValue('textZoom', defaultZoom);
+
+    // Comment image capture setting (toggled via script manager menu)
+    let captureCommentImages = GM_getValue('captureCommentImages', false);
+    GM_registerMenuCommand(
+        (captureCommentImages ? '✓' : '✗') + ' Capture comment images',
+        function() {
+            captureCommentImages = !captureCommentImages;
+            GM_setValue('captureCommentImages', captureCommentImages);
+            alert('Comment image capture ' + (captureCommentImages ? 'ENABLED' : 'DISABLED') +
+                  '.\nReload the page to apply.');
+        }
+    );
 
     // Function to apply zoom
     function applyZoom(zoom) {
@@ -243,6 +255,51 @@
             font-size: initial !important;
             line-height: initial !important;
         }
+
+        /* ── Sidebar peek overlay ───────────────────────────────────────────── */
+        #sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 99997;
+        }
+        body.sidebar-peek #sidebar-backdrop {
+            display: block;
+        }
+        body.sidebar-peek #right-sidebar-container {
+            position: fixed !important;
+            right: 0 !important;
+            top: 0 !important;
+            height: 100vh !important;
+            width: min(380px, 90vw) !important;
+            min-width: 0 !important;
+            visibility: visible !important;
+            overflow-y: auto !important;
+            z-index: 99998 !important;
+            background: var(--color-neutral-background, #fff) !important;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.3) !important;
+            padding: 1em !important;
+        }
+        body.sidebar-peek #right-sidebar-container aside {
+            display: block !important;
+        }
+
+        /* Sidebar peek button */
+        #sidebar-peek {
+            background: #1c6fa3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background 0.2s;
+        }
+        #sidebar-peek:hover { background: #1a5f8e; }
+        #sidebar-peek:active { background: #155077; }
     `);
 
     // Create control panel container
@@ -266,6 +323,17 @@
     saveDTButton.id = 'save-devonthink';
     saveDTButton.textContent = '📥 Save to DT';
     saveDTButton.title = 'Save to DEVONthink via Keyboard Maestro';
+
+    // Create sidebar peek button
+    const peekButton = document.createElement('button');
+    peekButton.id = 'sidebar-peek';
+    peekButton.textContent = 'ℹ️ Info';
+    peekButton.title = 'Show community sidebar';
+
+    // Backdrop for sidebar peek overlay
+    const backdrop = document.createElement('div');
+    backdrop.id = 'sidebar-backdrop';
+    document.body.appendChild(backdrop);
 
     // Function to format zoom display as relative value
     function formatZoomDisplay(zoom) {
@@ -295,6 +363,7 @@
     controlPanel.appendChild(zoomControls);
     controlPanel.appendChild(copyButton);
     controlPanel.appendChild(saveDTButton);
+    controlPanel.appendChild(peekButton);
 
     // Toggle sidebar functionality
     toggleButton.addEventListener('click', function() {
@@ -306,6 +375,16 @@
         }
     });
 
+    // Sidebar peek overlay
+    function closeSidebarPeek() { document.body.classList.remove('sidebar-peek'); }
+    peekButton.addEventListener('click', function() {
+        document.body.classList.toggle('sidebar-peek');
+    });
+    backdrop.addEventListener('click', closeSidebarPeek);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSidebarPeek();
+    });
+
     // Download as .webarchive functionality
     copyButton.addEventListener('click', async function() {
         const originalText = copyButton.textContent;
@@ -314,6 +393,12 @@
             let html = extractPageAsHTML();
             const images = await fetchPostImages();
             html = inlineImages(html, images);
+            if (captureCommentImages) {
+                const extra = (await Promise.allSettled(
+                    collectExternalImageUrls(html).map(fetchImageData)
+                )).filter(r => r.status === 'fulfilled' && r.value).map(r => r.value);
+                html = inlineImages(html, extra);
+            }
             const filename = makeFilename() + '.html';
             const blob = new Blob([html], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
@@ -340,6 +425,12 @@
             let html = extractPageAsHTML();
             const images = await fetchPostImages();
             html = inlineImages(html, images);
+            if (captureCommentImages) {
+                const extra = (await Promise.allSettled(
+                    collectExternalImageUrls(html).map(fetchImageData)
+                )).filter(r => r.status === 'fulfilled' && r.value).map(r => r.value);
+                html = inlineImages(html, extra);
+            }
             await navigator.clipboard.writeText(html);
 
             saveDTButton.textContent = '✓ Saving...';
@@ -399,6 +490,20 @@
 
     function makeFilename() {
         return makeDocTitle();
+    }
+
+    // Collect any remaining external http image URLs from a generated HTML string
+    // (used to pick up comment images after post images have already been inlined)
+    function collectExternalImageUrls(html) {
+        const urls = [];
+        const seen = new Set();
+        const regex = /src="(https?:[^"]+)"/g;
+        let m;
+        while ((m = regex.exec(html)) !== null) {
+            const url = m[1].replace(/&amp;/g, '&');
+            if (!seen.has(url)) { seen.add(url); urls.push(url); }
+        }
+        return urls;
     }
 
     function inlineImages(html, images) {
@@ -484,6 +589,17 @@
             'BLOCKQUOTE','CODE','PRE','UL','OL','LI','HR',
             'H1','H2','H3','H4','H5','H6','IMG','FIGURE','FIGCAPTION']);
 
+        // Wrap bare images in anchor links so clicking opens the full image
+        clone.querySelectorAll('img[src]').forEach(img => {
+            if (img.closest('a')) return;
+            const a = document.createElement('a');
+            a.href = img.src;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            img.parentNode.insertBefore(a, img);
+            a.appendChild(img);
+        });
+
         // Process bottom-up so unwrapping a parent doesn't skip its children
         [...clone.querySelectorAll('*')].reverse().forEach(el => {
             if (!keep.has(el.tagName)) {
@@ -557,6 +673,10 @@
             const ta = el.querySelector('faceplate-timeago');
             if (ta) date = fmt(ta.getAttribute('ts') || ta.getAttribute('datetime'));
         }
+        if (!date) {
+            const timeEl = el.querySelector('time[datetime]');
+            if (timeEl) date = fmt(timeEl.getAttribute('datetime'));
+        }
         return date;
     }
 
@@ -588,7 +708,7 @@
         if (score) meta += ` <code>${escHtml(score)}</code>`;
         if (date)  meta += ` <em>${escHtml(date)}</em>`;
 
-        let html = `<p class="comment-meta">${meta}</p>\n${bodyHTML}\n`;
+        let html = `<p class="comment-meta">${meta}</p>\n<div class="comment-body">${bodyHTML}</div>\n`;
 
         const children = directCommentChildren(commentEl);
         if (children.length) {
@@ -619,6 +739,7 @@
             'hr{border:none;border-top:1px solid #e0e0e0;margin:1.25em 0}',
             '.post-images{margin:.75em 0}',
             '.post-images img{max-width:100%;height:auto;display:block;margin:.5em auto}',
+            '.comment-body img{max-height:400px;width:auto;display:block;margin:.25em 0}',
         ].join('');
 
         let html = `<!DOCTYPE html>\n<html lang="en">\n<head>\n`
@@ -648,7 +769,7 @@
         if (postImgs.length) {
             html += '<div class="post-images">\n';
             for (const { src, alt } of postImgs) {
-                html += `<p><img src="${escHtml(src)}" alt="${escHtml(alt)}"></p>\n`;
+                html += `<p><a href="${escHtml(src)}" target="_blank" rel="noopener"><img src="${escHtml(src)}" alt="${escHtml(alt)}"></a></p>\n`;
             }
             html += '</div>\n';
         }
