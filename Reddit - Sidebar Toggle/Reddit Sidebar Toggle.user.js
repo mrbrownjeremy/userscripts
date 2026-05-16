@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reddit Sidebar Toggle
 // @namespace    http://tampermonkey.net/
-// @version      3.6.0
+// @version      3.6.1
 // @description  Hide Reddit sidebars, center content, adjustable text size, download posts+comments as self-contained HTML, save to DEVONthink, sidebar peek overlay
 // @author       You
 // @match        https://www.reddit.com/*
@@ -734,7 +734,7 @@
             '.comment-meta{margin:.75em 0 .15em}',
             '.comment-meta strong{font-size:1em}',
             '.comment-meta code{background:#f0f0f0;padding:0 4px;border-radius:3px;font-size:.82em}',
-            '.comment-meta em{color:#999;font-style:normal;font-size:.9em}',
+            '.comment-meta em{color:#bbb;font-style:italic;font-size:.83em}',
             'p{margin:.4em 0}',
             'hr{border:none;border-top:1px solid #e0e0e0;margin:1.25em 0}',
             '.post-images{margin:.75em 0}',
