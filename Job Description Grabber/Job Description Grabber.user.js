@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.16.2
+// @version      3.16.3
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -712,6 +712,8 @@
       '.itemInfo',
       '.post__content-inner',
       '.gutenberg--job',
+      // Wellfound: scoped to JobDetail to avoid nav/sidebar noise
+      '[data-test="JobDetail"] [class*="_description_"]',
       // LinkedIn
       '[class*="jobs-description"]',
       '.jobs-box__html-content',
@@ -735,7 +737,7 @@
       const GENERIC_ALT = /^(company[\s-]logo|logo|company|organization|employer|corp|inc)$/i;
       const logoImg = document.querySelector('img[alt*=" Logo"], img[alt*=" logo"], img[alt*="-logo"], img[alt*="-Logo"]');
       if (logoImg && !GENERIC_ALT.test(logoImg.alt.trim())) {
-        data.employer = logoImg.alt.replace(/[\s\-_]*(logo|Logo)\s*$/i, '').trim();
+        data.employer = logoImg.alt.replace(/[\s\-_]*(logo|Logo)\s*$/i, '').replace(/\s+company\s*$/i, '').trim();
       }
     }
     if (!data.employer) {
@@ -1721,7 +1723,9 @@
   }
 
   function extractAboutEmployer() {
-    const ABOUT_RE = /^about\s+(the\s+)?(company|employer|us|organization|studio|team|[a-z].{2,40})$/i;
+    const ABOUT_RE = /^(about\s+(the\s+)?(company|employer|us|organization|studio|team|[a-z].{2,40})|company\s+(description|overview|bio|profile|summary)|who\s+we\s+are|our\s+story)$/i;
+
+    // 1. Real heading tags (h2/h3/h4)
     const headings = document.querySelectorAll('h2, h3, h4');
     for (const h of headings) {
       if (ABOUT_RE.test(h.textContent.trim())) {
@@ -1736,8 +1740,20 @@
         if (parts.length) return parts.join(' ').replace(/\s+/g, ' ').trim();
       }
     }
+
+    // 2. <strong>/<b> used as fake headings inside <p> (e.g. Wellfound)
+    const fakeHeadings = document.querySelectorAll('p > strong:first-child, p > b:first-child');
+    for (const s of fakeHeadings) {
+      if (ABOUT_RE.test(s.textContent.trim())) {
+        const p = s.parentElement;
+        const text = p.textContent.replace(s.textContent, '').replace(/^\s*:?\s*/, '').trim();
+        if (text.length > 20) return text.replace(/\s+/g, ' ');
+      }
+    }
+
+    // 3. Labeled fields
     const fields = extractLabeledFields();
-    for (const key of ['about us', 'about the company', 'about company', 'about employer', 'company overview', 'who we are', 'our story']) {
+    for (const key of ['about us', 'about the company', 'about company', 'about employer', 'company overview', 'who we are', 'our story', 'company description']) {
       const val = fields[key];
       if (val && val.length > 20) return val.trim();
     }
