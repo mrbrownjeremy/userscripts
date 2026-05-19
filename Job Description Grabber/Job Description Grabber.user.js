@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Job Description Grabber
 // @namespace    https://github.com/mrbrownjeremy
-// @version      3.15.1
+// @version      3.16.0
 // @description  Grab job descriptions from job sites and send to clipboard, TXT, or Coda DB Job Applications
 // @author       Jeremy Brown
 // @icon         data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2YxNzMyNDt9LmNscy0ye2ZpbGw6IzQyNDZkMTt9LmNscy0ze2ZpbGw6I2IzZmZlMzt9LmNscy0zLC5jbHMtNHtzdHJva2U6I2IzZmZlMztzdHJva2Utd2lkdGg6MzBweDt9LmNscy00e2ZpbGw6bm9uZTt9PC9zdHlsZT48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjQzMy41MSAyMzAuOTUgNDMzLjUxIDQyNS44NSA3OC42IDQyNS44NSA3OC42IDcwLjkzIDMwNS42MSA3MC45MyA0MzMuNTEgMjMwLjk1Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDI5Ljc1LDMwMC41N2MtMTcuNDQsMC0zMS41OCwxNC4xNC0zMS41OCwzMS41OHY2OS41NkgxMDYuNzRWMTEwLjI5aDE4MC45M2MxNy40NCwwLDMxLjU4LTE0LjE0LDMxLjU4LTMxLjU4cy0xNC4xNC0zMS41OC0zMS41OC0zMS41OEgxMDAuNjdjLTMxLjQ4LDAtNTcuMDksMjUuNjEtNTcuMDksNTcuMDl2MzAzLjU3YzAsMzEuNDgsMjUuNjEsNTcuMDksNTcuMDksNTcuMDloMzAzLjU3YzMxLjQ4LDAsNTcuMDktMjUuNjEsNTcuMDktNTcuMDl2LTc1LjY0YzAtMTcuNDQtMTQuMTQtMzEuNTgtMzEuNTgtMzEuNThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDg3LjE5LDE3Ni4zMmwtMTA5LjE4LTgyLjVjLTEzLjUzLTEwLjIyLTMyLjkxLS41Ny0zMi45MSwxNi4zOHY0OS44aC04NS41MmMtNDQuMDgsMC03OS45NCwzNS44Ni03OS45NCw3OS45NHYxMDAuNzZjMCwxNy40NCwxNC4xNCwzMS41OCwzMS41OCwzMS41OHMzMS41OC0xNC4xNCwzMS41OC0zMS41OHYtMTAwLjc2YzAtOS4yNiw3LjUzLTE2Ljc5LDE2Ljc5LTE2Ljc5aDg1LjUydjUyLjA1YzAsMTYuOTUsMTkuMzksMjYuNiwzMi45MSwxNi4zOGwxMDkuMTgtODIuNWMxMC44Ny04LjIyLDEwLjg3LTI0LjU1LDAtMzIuNzZaIi8+PC9zdmc+
@@ -55,6 +55,7 @@
     responsibilities:  'c-A1t75QAb6Z',
     requirements:      'c-zVRbjcYT8V',
     benefits:          'c-mbBX99xWN8',
+    aboutEmployer:     'c-lvl3yDafQK',
   };
 
   const DEFAULT_INDUSTRIES = [
@@ -131,6 +132,7 @@
     'builtin.com':          'BuiltIn.com',
     'wellfound.com':        'Wellfound (AngelList Talent)',
     'angel.co':             'Wellfound (AngelList Talent)',
+    '8bitplay.com':         'Games',
   };
 
   const REMOTE_OPTIONS    = ['Remote', 'Hybrid', 'On-Site'];
@@ -382,7 +384,7 @@
       channel: detectChannel(), contact: '', contactTitle: '',
       phoneEmail: '', status: 'Considering', interest: 2,
       connectionStrength: 'None', shiftHours: '',
-      responsibilities: '', requirements: '', benefits: '',
+      responsibilities: '', requirements: '', benefits: '', aboutEmployer: '',
     };
 
     const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
@@ -539,6 +541,34 @@
       }
     }
 
+    // ── 8bitplay.com-specific extraction ─────────────────────────────────────
+    if (location.hostname.includes('8bitplay.com')) {
+      if (!data.position) {
+        const h1 = document.querySelector('h1.post__title');
+        if (h1) data.position = clean(h1.textContent);
+      }
+      if (!data.employer) {
+        const applyLink = document.querySelector('a#apply, a.acf-job-board__single-button');
+        if (applyLink) {
+          try {
+            const sub = new URL(applyLink.href).hostname.split('.')[0];
+            data.employer = sub.charAt(0).toUpperCase() + sub.slice(1);
+          } catch (e) {}
+        }
+      }
+      if (!data.location) {
+        const DEPT_RE = /community|support|marketing|pr|design|engineer|product|finance|sales|legal|qa|art|game|tech|software|data|&/i;
+        const locationPills = [...document.querySelectorAll('.post__header-pill')]
+          .map(p => p.textContent.trim())
+          .filter(t => !DEPT_RE.test(t));
+        if (locationPills.length) data.location = locationPills.join(', ');
+      }
+      if (!data.description) {
+        const content = document.querySelector('.post__content-inner');
+        if (content) data.description = stripHtml(content.innerHTML);
+      }
+    }
+
     // ── LinkedIn-specific extraction ──────────────────────────────────────────
     // Overrides ld+json and generic DOM selectors for LinkedIn because:
     //   1. ld+json may reflect the *first* job loaded on the search page, not
@@ -680,6 +710,8 @@
       '.rich-text-container',
       '.entry-content',
       '.itemInfo',
+      '.post__content-inner',
+      '.gutenberg--job',
       // LinkedIn
       '[class*="jobs-description"]',
       '.jobs-box__html-content',
@@ -947,6 +979,7 @@
     data.responsibilities = sections.responsibilities;
     data.requirements     = sections.requirements;
     data.benefits         = sections.benefits;
+    if (!data.aboutEmployer) data.aboutEmployer = extractAboutEmployer();
 
     return data;
   }
@@ -1687,6 +1720,30 @@
     };
   }
 
+  function extractAboutEmployer() {
+    const ABOUT_RE = /^about\s+(the\s+)?(company|employer|us|organization|studio|team|[a-z].{2,40})$/i;
+    const headings = document.querySelectorAll('h2, h3, h4');
+    for (const h of headings) {
+      if (ABOUT_RE.test(h.textContent.trim())) {
+        const parts = [];
+        let next = h.nextElementSibling;
+        while (next && !['H1','H2','H3','H4','H5','H6'].includes(next.tagName)) {
+          const text = next.textContent.trim();
+          if (text) parts.push(text);
+          next = next.nextElementSibling;
+          if (parts.length >= 3) break;
+        }
+        if (parts.length) return parts.join(' ').replace(/\s+/g, ' ').trim();
+      }
+    }
+    const fields = extractLabeledFields();
+    for (const key of ['about us', 'about the company', 'about company', 'about employer', 'company overview', 'who we are', 'our story']) {
+      const val = fields[key];
+      if (val && val.length > 20) return val.trim();
+    }
+    return '';
+  }
+
   function formatAsText(data) {
     return [
       `Position:    ${data.position}`,
@@ -1713,6 +1770,7 @@
       ...(data.responsibilities ? [`── Responsibilities ──`, ``, data.responsibilities, ``] : []),
       ...(data.requirements     ? [`── Requirements ──`,     ``, data.requirements,     ``] : []),
       ...(data.benefits         ? [`── Benefits ──`,         ``, data.benefits,         ``] : []),
+      ...(data.aboutEmployer    ? [`── About Employer ──`,   ``, data.aboutEmployer,    ``] : []),
     ].join('\n');
   }
 
@@ -2215,6 +2273,7 @@
     .jdg-hl-dropzone   { display: flex !important; flex-wrap: wrap !important; }
     .jdg-hl-tag        { display: inline-flex !important; }
   `;
+  GM_addStyle(MODAL_CSS);
 
   function doShowCodaModal() {
     const existing = document.getElementById('jdg-overlay');
@@ -2230,10 +2289,6 @@
     const host = document.createElement('div');
     host.id = 'jdg-overlay';
     host.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
-    const sr = host.attachShadow({ mode: 'open' });
-    const styleEl = document.createElement('style');
-    styleEl.textContent = MODAL_CSS;
-    sr.appendChild(styleEl);
 
     const dialog = document.createElement('div');
     dialog.id = 'jdg-modal';
@@ -2277,7 +2332,14 @@
             <span class="jdg-interest-hi">Hi</span>
           </div>
         </div>
-        ${selectField('connectionStrength', 'Connection Strength', CONNSTR_OPTIONS, data.connectionStrength)}
+        <div class="jdg-field full">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <label style="margin:0;flex-shrink:0;">About Employer</label>
+            <button id="jdg-about-edit-btn" style="padding:1px 8px;font-size:11px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;color:#555;flex-shrink:0;">Edit</button>
+          </div>
+          <div class="jdg-desc-preview" id="jdg-about-preview" style="max-height:1.6em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${escHtml((data.aboutEmployer || '').slice(0, 200))}</div>
+          <textarea id="jdg-f-aboutEmployer" style="display:none;width:100%;min-height:80px;font-size:12px;font-family:inherit;border:1px solid #ccc;border-radius:6px;padding:8px 10px;box-sizing:border-box;resize:vertical;white-space:pre-wrap;">${escHtml(data.aboutEmployer || '')}</textarea>
+        </div>
 
         <div class="jdg-field"><div style="display:flex;align-items:baseline;justify-content:space-between;"><label>Responsibilities</label><a id="jdg-add-resp-phrase" href="#" style="font-size:10px;font-weight:400;color:#4a4adf;text-decoration:none;letter-spacing:0;">Add Phrase</a></div><textarea id="jdg-f-responsibilities" style="min-height:80px;font-size:12px;font-family:inherit;white-space:pre-wrap;">${escHtml(data.responsibilities)}</textarea></div>
         <div class="jdg-field"><div style="display:flex;align-items:baseline;justify-content:space-between;"><label>Requirements</label><a id="jdg-add-req-phrase" href="#" style="font-size:10px;font-weight:400;color:#4a4adf;text-decoration:none;letter-spacing:0;">Add Phrase</a></div><textarea id="jdg-f-requirements" style="min-height:80px;font-size:12px;font-family:inherit;white-space:pre-wrap;">${escHtml(data.requirements)}</textarea></div>
@@ -2310,7 +2372,7 @@
       </div>
     `;
 
-    sr.appendChild(dialog);
+    host.appendChild(dialog);
     document.body.appendChild(host);
 
     // ── Draggable ──
@@ -2377,6 +2439,24 @@
       const preview = dialog.querySelector('#jdg-ben-preview');
       const textarea = dialog.querySelector('#jdg-f-benefits');
       const btn = dialog.querySelector('#jdg-ben-edit-btn');
+      if (textarea.style.display === 'none') {
+        preview.style.display = 'none';
+        textarea.style.display = '';
+        btn.textContent = 'Done';
+        btn.style.cssText = 'padding:1px 8px;font-size:11px;border:1px solid #4a4adf;border-radius:4px;background:#4a4adf;cursor:pointer;color:#fff;flex-shrink:0;';
+      } else {
+        preview.style.display = '';
+        textarea.style.display = 'none';
+        btn.textContent = 'Edit';
+        btn.style.cssText = 'padding:1px 8px;font-size:11px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;color:#555;flex-shrink:0;';
+      }
+    });
+
+    // ── About Employer edit toggle ──
+    dialog.querySelector('#jdg-about-edit-btn').addEventListener('click', () => {
+      const preview = dialog.querySelector('#jdg-about-preview');
+      const textarea = dialog.querySelector('#jdg-f-aboutEmployer');
+      const btn = dialog.querySelector('#jdg-about-edit-btn');
       if (textarea.style.display === 'none') {
         preview.style.display = 'none';
         textarea.style.display = '';
@@ -2630,12 +2710,13 @@
       status:            'Considering',
       industries:        selectedIndustries,
       interest:          parseInt(modal.querySelector('input[name="jdg-interest"]:checked')?.value || '2'),
-      connectionStrength: v('connectionStrength'),
+      connectionStrength: 'None',
       shiftHours:         v('shiftHours'),
       description:        modal.querySelector('#jdg-f-description')?.value ?? fullDescription,
       responsibilities:   v('responsibilities'),
       requirements:       v('requirements'),
       benefits:           v('benefits'),
+      aboutEmployer:      v('aboutEmployer'),
     };
   }
 
@@ -2693,6 +2774,7 @@
       { column: COL.responsibilities, value: data.responsibilities },
       { column: COL.requirements,     value: data.requirements },
       { column: COL.benefits,         value: data.benefits },
+      { column: COL.aboutEmployer,    value: data.aboutEmployer },
     ];
 
     if (data.industries && data.industries.length > 0) {
@@ -2741,10 +2823,6 @@
     const host = document.createElement('div');
     host.id = 'jdg-site-overlay';
     host.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
-    const sr = host.attachShadow({ mode: 'open' });
-    const styleEl = document.createElement('style');
-    styleEl.textContent = MODAL_CSS;
-    sr.appendChild(styleEl);
 
     const dialog = document.createElement('div');
     dialog.id = 'jdg-modal';
@@ -2822,7 +2900,7 @@
       </div>
     `;
 
-    sr.appendChild(dialog);
+    host.appendChild(dialog);
     document.body.appendChild(host);
 
     dialog.querySelector('#jdg-site-close').addEventListener('click', () => host.remove());
@@ -2951,10 +3029,6 @@
     const host = document.createElement('div');
     host.id = 'jdg-settings-overlay';
     host.style.cssText = 'position:fixed;inset:0;z-index:2147483646;pointer-events:none;';
-    const sr = host.attachShadow({ mode: 'open' });
-    const styleEl = document.createElement('style');
-    styleEl.textContent = MODAL_CSS;
-    sr.appendChild(styleEl);
 
     const dialog = document.createElement('div');
     dialog.id = 'jdg-modal';
@@ -3055,7 +3129,7 @@
       </div>
     `;
 
-    sr.appendChild(dialog);
+    host.appendChild(dialog);
     document.body.appendChild(host);
 
     dialog.querySelector('#jdg-settings-close').addEventListener('click', () => host.remove());
