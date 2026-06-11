@@ -6,6 +6,7 @@
 // @author       Jeremy Brown
 // @match        https://www.ebay.com/mys/active*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ebay.com
+// @license      MIT
 // @grant        GM_addStyle
 // ==/UserScript==
 
