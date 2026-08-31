@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Comment Downloader
 // @namespace    https://github.com/jeremybrown
-// @version      1.4.0
+// @version      1.5.0
 // @description  Adds a discreet button to YouTube that downloads comments via local app
 // @author       Jeremy Brown
 // @match        https://www.youtube.com/*
@@ -15,17 +15,28 @@
   const BUTTON_ID = 'yt-comment-dl-btn';
   const DIALOG_ID = 'yt-comment-dl-dialog';
 
+  function getChannelName() {
+    return (
+      document.querySelector('ytd-video-owner-renderer #channel-name a')?.textContent?.trim() ||
+      document.querySelector('#owner #channel-name .yt-simple-endpoint')?.textContent?.trim() ||
+      ''
+    );
+  }
+
   function getCurrentVideoUrl() {
     const url = new URL(location.href);
     const videoId = url.searchParams.get('v');
     return videoId ? `https://www.youtube.com/watch?v=${videoId}` : location.href;
   }
 
-  function fireDownload(limit, sort) {
+  function fireDownload(limit, sort, channel, includeTs, includeVid) {
     const title = document.title.replace(/ - YouTube$/, '').trim();
     let href = `ytcomments://download?url=${encodeURIComponent(getCurrentVideoUrl())}&sort=${sort}`;
     if (limit) href += `&limit=${encodeURIComponent(limit)}`;
     href += `&title=${encodeURIComponent(title)}`;
+    href += `&channel=${encodeURIComponent(channel)}`;
+    href += `&ts=${includeTs ? '1' : '0'}`;
+    href += `&vid=${includeVid ? '1' : '0'}`;
 
     const iframe = document.createElement('iframe');
     iframe.style.display = 'none';
@@ -89,6 +100,23 @@
     sortLabel.appendChild(sortSelect);
     box.appendChild(sortLabel);
 
+    const toggleRow = el('div', { display: 'flex', gap: '20px', marginBottom: '20px' });
+    function makeCheckbox(id, labelText, defaultChecked) {
+      const lbl = el('label', { display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '13px', color: '#555' });
+      const cb = el('input', {}, { id, type: 'checkbox' });
+      cb.checked = defaultChecked;
+      const span = document.createElement('span');
+      span.textContent = labelText;
+      lbl.appendChild(cb);
+      lbl.appendChild(span);
+      return { lbl, cb };
+    }
+    const { lbl: tsLabel, cb: tsCheck } = makeCheckbox('ytdl-ts', 'Include date', true);
+    const { lbl: vidLabel, cb: vidCheck } = makeCheckbox('ytdl-vid', 'Include video ID', true);
+    toggleRow.appendChild(tsLabel);
+    toggleRow.appendChild(vidLabel);
+    box.appendChild(toggleRow);
+
     const btnRow = el('div', { display: 'flex', gap: '8px', justifyContent: 'flex-end' });
     const cancelBtn = el('button', {
       padding: '7px 16px', border: '1px solid #ccc', borderRadius: '6px',
@@ -118,7 +146,7 @@
     overlay.onclick = e => { if (e.target === overlay) close(); };
     okBtn.onclick = () => {
       close();
-      fireDownload(limitInput.value.trim(), sortSelect.value);
+      fireDownload(limitInput.value.trim(), sortSelect.value, getChannelName(), tsCheck.checked, vidCheck.checked);
     };
 
     onKey = e => {

@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # download-comments.sh
-# Usage: download-comments.sh <youtube_url> [sort] [limit] [title]
-#   sort:  0 = most popular (default), 1 = most recent
-#   limit: max number of comments (omit for all)
-#   title: video title for filename (optional)
+# Usage: download-comments.sh <youtube_url> [sort] [limit] [title] [channel] [ts] [vid]
+#   sort:    0 = most popular (default), 1 = most recent
+#   limit:   max number of comments (omit for all)
+#   title:   video title for filename (optional)
+#   channel: channel name for filename (optional)
+#   ts:      1 = include date in filename (default), 0 = omit
+#   vid:     1 = include video ID in filename (default), 0 = omit
 
 set -euo pipefail
 
@@ -11,6 +14,9 @@ VIDEO_URL="${1:-}"
 SORT="${2:-0}"
 LIMIT="${3:-}"
 VIDEO_TITLE="${4:-}"
+CHANNEL="${5:-}"
+INCLUDE_TS="${6:-1}"
+INCLUDE_VID="${7:-1}"
 
 if [[ -z "$VIDEO_URL" ]]; then
   echo "Usage: $0 <youtube_url> [sort] [limit] [title]" >&2
@@ -28,20 +34,32 @@ if [[ -z "$PYTHON3" ]]; then
 fi
 
 OUTPUT_DIR="$HOME/Downloads"
-TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+TIMESTAMP=$(date +%y%m%d)
 
 VIDEO_ID=$(echo "$VIDEO_URL" | sed -n 's/.*[?&]v=\([^&]*\).*/\1/p')
 [[ -z "$VIDEO_ID" ]] && VIDEO_ID="unknown"
 
-# Sanitize title for use in filename: keep alphanumeric + spaces, collapse, trim to 60 chars
-if [[ -n "$VIDEO_TITLE" ]]; then
-  SAFE_TITLE=$(echo "$VIDEO_TITLE" | tr -cs 'a-zA-Z0-9 ' '_' | sed 's/_*$//;s/^_*//' | cut -c1-60 | sed 's/ /_/g')
-  JSONL_FILE="$OUTPUT_DIR/ytc-${SAFE_TITLE}_${VIDEO_ID}_${TIMESTAMP}.jsonl"
-  CSV_FILE="$OUTPUT_DIR/ytc-${SAFE_TITLE}_${VIDEO_ID}_${TIMESTAMP}.csv"
+sanitize() { echo "$1" | tr -cs 'a-zA-Z0-9 ' '_' | sed 's/_*$//;s/^_*//' | cut -c1-"$2" | sed 's/ /_/g'; }
+
+SAFE_CHANNEL=$([[ -n "$CHANNEL" ]] && sanitize "$CHANNEL" 40 || echo "")
+SAFE_TITLE=$([[ -n "$VIDEO_TITLE" ]] && sanitize "$VIDEO_TITLE" 60 || echo "")
+
+# Build base name: channel _-_ title, falling back gracefully
+if [[ -n "$SAFE_CHANNEL" && -n "$SAFE_TITLE" ]]; then
+  BASE="ytc-${SAFE_CHANNEL}_-_${SAFE_TITLE}"
+elif [[ -n "$SAFE_TITLE" ]]; then
+  BASE="ytc-${SAFE_TITLE}"
+elif [[ -n "$SAFE_CHANNEL" ]]; then
+  BASE="ytc-${SAFE_CHANNEL}"
 else
-  JSONL_FILE="$OUTPUT_DIR/ytc-${VIDEO_ID}_${TIMESTAMP}.jsonl"
-  CSV_FILE="$OUTPUT_DIR/ytc-${VIDEO_ID}_${TIMESTAMP}.csv"
+  BASE="ytc-${VIDEO_ID}"
 fi
+
+[[ "$INCLUDE_VID" == "1" ]] && BASE="${BASE}_${VIDEO_ID}"
+[[ "$INCLUDE_TS"  == "1" ]] && BASE="${BASE}_${TIMESTAMP}"
+
+JSONL_FILE="$OUTPUT_DIR/${BASE}.jsonl"
+CSV_FILE="$OUTPUT_DIR/${BASE}.csv"
 
 # Always clean up JSONL on exit
 trap 'rm -f "$JSONL_FILE"' EXIT

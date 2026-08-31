@@ -13,10 +13,15 @@ on open location theURL
 
 	set limitVal to extractParam(theURL, "limit")
 	set titleVal to extractParam(theURL, "title")
+	set channelVal to extractParam(theURL, "channel")
+	set tsVal to extractParam(theURL, "ts")
+	if tsVal is "" then set tsVal to "1"
+	set vidVal to extractParam(theURL, "vid")
+	if vidVal is "" then set vidVal to "1"
 
 	set scriptPath to (POSIX path of (path to home folder)) & "bin/download-yt-comments"
 
-	set cmd to "/bin/bash -l " & quoted form of scriptPath & " " & quoted form of videoURL & " " & quoted form of sortVal & " " & quoted form of limitVal & " " & quoted form of titleVal
+	set cmd to "/bin/bash -l " & quoted form of scriptPath & " " & quoted form of videoURL & " " & quoted form of sortVal & " " & quoted form of limitVal & " " & quoted form of titleVal & " " & quoted form of channelVal & " " & quoted form of tsVal & " " & quoted form of vidVal
 
 	-- Run in background so AppleScript doesn't block or time out on large downloads
 	-- The shell script itself shows a notification when done
