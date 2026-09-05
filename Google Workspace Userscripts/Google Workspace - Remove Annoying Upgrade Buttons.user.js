@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Google Workspace - Remove Annoying Upgrade Buttons
 // @namespace    http://tampermonkey.net/
-// @version      1.3
-// @description  Permanently removes the intrusive "Upgrade" upsell blocks in Google Drive/Sheets, plus optional removal of the "Gemini" and "Meet" toolbar icons. Toggle each from the Tampermonkey menu.
+// @version      1.4
+// @description  Permanently removes the intrusive "Upgrade" upsell blocks in Google Drive/Sheets, plus optional removal of the "Gemini" and "Meet" toolbar icons and toning down the loud "Share" button. Toggle each from the Tampermonkey menu.
 // @author       Your Friendly AI & User
 // @license      CC-BY-SA-4.0
 // @match        https://drive.google.com/*
@@ -21,8 +21,9 @@
     'use strict';
 
     // ---------------------------------------------------------------------
-    // Toggleable removal groups. Each group has a label, a stored-setting
-    // key (with default), and the laser-targeted selectors it nukes.
+    // Toggleable groups. Each group has a label, a stored-setting key (with
+    // default), and an action: `selectors` to nuke matching elements, and/or
+    // `css` to inject a stylesheet while the group is enabled.
     // ---------------------------------------------------------------------
     const GROUPS = {
         upgrade: {
@@ -67,6 +68,34 @@
                 '.docs-meet-in-editors-entrypoint-container',
                 '#docs-meet-in-editors-entrypointbutton'
             ]
+        },
+        share: {
+            label: 'Tone down "Share" button',
+            key: 'toneDownShare',
+            default: true,
+            // Strip the loud blue action-pill styling so Share reads as a
+            // plain toolbar button. Kept, not removed — it's still clickable.
+            css: `
+                #docs-titlebar-share-client-button,
+                #docs-titlebar-share-client-button .scb-split-button,
+                #docs-titlebar-share-client-button #scb-quick-actions-menu-button {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                    box-shadow: none !important;
+                    border-color: transparent !important;
+                }
+                #docs-titlebar-share-client-button .scb-split-button {
+                    color: #5f6368 !important;
+                    font-weight: 400 !important;
+                }
+                #docs-titlebar-share-client-button .scb-button-icon {
+                    opacity: 0.75 !important;
+                }
+                #docs-titlebar-share-client-button:hover .scb-split-button,
+                #docs-titlebar-share-client-button:hover #scb-quick-actions-menu-button {
+                    background: rgba(95, 99, 104, 0.12) !important;
+                }
+            `
         }
     };
 
@@ -79,7 +108,7 @@
     function activeSelectors() {
         const list = [];
         Object.values(GROUPS).forEach(group => {
-            if (isEnabled(group)) list.push(...group.selectors);
+            if (group.selectors && isEnabled(group)) list.push(...group.selectors);
         });
         return list;
     }
@@ -88,6 +117,20 @@
         activeSelectors().forEach(selector => {
             document.querySelectorAll(selector).forEach(element => element.remove());
         });
+    }
+
+    // Inject the CSS for every currently-enabled style group (once).
+    function applyStyles() {
+        const css = Object.values(GROUPS)
+            .filter(group => group.css && isEnabled(group))
+            .map(group => group.css)
+            .join('\n');
+        if (!css) return;
+
+        const style = document.createElement('style');
+        style.id = 'gw-remove-buttons-styles';
+        style.textContent = css;
+        (document.head || document.documentElement).appendChild(style);
     }
 
     // ---------------------------------------------------------------------
@@ -107,6 +150,7 @@
     }
 
     registerMenu();
+    applyStyles();
 
     // 1. Rapid-fire execution on initial page load to prevent layout flickering
     let attempts = 0;
